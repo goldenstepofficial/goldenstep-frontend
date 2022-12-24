@@ -1,0 +1,52 @@
+{
+  "care": [
+    {
+      "id": 1,
+      "title": "SNEAKER LAB PREMIUM KIT",
+      "price": "2,000",
+      "image": "/product-care.png"
+    },
+    {
+      "id": 2,
+      "title": "SNEAKER LAB SNEAKER CLEANER",
+      "price": "900",
+      "image": "/product-care2.png"
+    },
+    {
+      "id": 1,
+      "title": "SNEAKER LAB PREMIUM KIT",
+      "price": "2,000",
+      "image": "/product-care.png"
+    },
+    {
+      "id": 2,
+      "title": "SNEAKER LAB SNEAKER CLEANER",
+      "price": "900",
+      "image": "/product-care2.png"
+    },
+    {
+      "id": 1,
+      "title": "SNEAKER LAB PREMIUM KIT",
+      "price": "2,000",
+      "image": "/product-care.png"
+    },
+    {
+      "id": 2,
+      "title": "SNEAKER LAB SNEAKER CLEANER",
+      "price": "900",
+      "image": "/product-care2.png"
+    },
+    {
+      "id": 1,
+      "title": "SNEAKER LAB PREMIUM KIT",
+      "price": "2,000",
+      "image": "/product-care.png"
+    },
+    {
+      "id": 2,
+      "title": "SNEAKER LAB SNEAKER CLEANER",
+      "price": "900",
+      "image": "/product-care2.png"
+    }
+  ]
+}
