@@ -3,6 +3,7 @@ import Navbar2 from "../components/navbar2"
 import Footer from "../components/footer"
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import SneakerData from "../data/sneaker.json";
 
 const Sneakers = () => {
     const [colorChange, setColorchange] = useState(false);
@@ -32,7 +33,23 @@ const Sneakers = () => {
                 <Image src={"/images/sneaker-poster.jpeg"} layout="fill" />
             </div>
             <div>
-                THIS IS SNEAKERS PAGE
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mx-3">
+                    {SneakerData.sneakers.map((item, index) => {
+                        return (
+                            <div className="text-center mx-2 h-[250px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out">
+                                <div className="h-[150px]">
+                                    <Image src={item.image} width={250} height={150} />
+                                </div>
+                                <div>
+                                    <p className="text-[14px]">{item.title}</p>
+                                    <p className="border mx-auto w-[30%] mt-2 rounded-lg text-[#FFBC00] bg-black pt-1">
+                                        ₹{item.price}
+                                    </p>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
             </div>
             <Footer />
         </>

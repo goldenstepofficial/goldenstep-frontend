@@ -32,22 +32,26 @@ const Care = () => {
             <div className="md:h-[600px] h-[300px] top-0 relative">
                 <Image src={"/images/care-poster.webp"} layout="fill" />
             </div>
-            <div 
+            <div
             // className="grid grid-cols-2"
             >
                 {/* <div className="w-[25%]">
 
                 </div> */}
-                <div className=" grid grid-cols-4 w-full">
+                <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mx-3 w-full">
                     {CareData.care.map((item, index) => {
                         return (
-                            <div className="text-center mx-auto h-[500px]">
-                                <div className="h-[300px] overflow-hidden flex items-center">
-                                    <Image src={item.image} width={100} height={100} />
+                            <div className="text-center mx-2 h-[370px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out">
+                                <div className="h-[250px] overflow-hidden flex flex-col mt-10 items-center">
+                                    <div className="h-[100px] mx-auto">
+                                        <Image src={item.image} width={120} height={100} />
+                                    </div>
                                 </div>
                                 <div>
                                     <p className="text-[14px]"> {item.title} </p>
-                                    <p>₹{item.price}</p>
+                                    <p className="border mx-auto w-[30%] mt-2 rounded-lg text-[#FFBC00] bg-black pt-1">
+                                        ₹{item.price}
+                                    </p>
                                 </div>
                             </div>
                         );
