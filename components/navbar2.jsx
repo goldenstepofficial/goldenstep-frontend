@@ -9,7 +9,7 @@ const Navbar2 = () => {
     <>
       <div className="flex flex-col items-center w-full pb-2">
         <Image
-          src={"/logo.jpg"}
+          src={"/images/logo.jpg"}
           width={100}
           height={100}
           onClick={() => router.push("/")}
@@ -48,13 +48,13 @@ const Navbar2 = () => {
           </Link>
           <div className="flex flex-row">
             <Image
-              src={"/user-black.png"}
+              src={"/images/user-black.png"}
               width={30}
               height={30}
               className="mx-2 hover:cursor-pointer"
             />
             <Image
-              src={"/cart-black.png"}
+              src={"/images/cart-black.png"}
               width={30}
               height={30}
               className="mx-2 hover:cursor-pointer"
