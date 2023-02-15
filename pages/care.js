@@ -30,7 +30,7 @@ const Care = () => {
                 </div>
             )}
             <div className="md:h-[600px] h-[300px] top-0 relative">
-                <Image src={"/images/care-poster.webp"} layout="fill" />
+                <Image src={"/images/care-poster.webp"} layout="fill" alt="sneaker-care-poster" />
             </div>
             <div
             // className="grid grid-cols-2"
@@ -41,10 +41,10 @@ const Care = () => {
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mx-3 w-full">
                     {CareData.care.map((item, index) => {
                         return (
-                            <div className="text-center mx-2 h-[370px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out">
+                            <div className="text-center mx-2 h-[370px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out" key={index}>
                                 <div className="h-[250px] overflow-hidden flex flex-col mt-10 items-center">
                                     <div className="h-[100px] mx-auto">
-                                        <Image src={item.image} width={120} height={100} />
+                                        <Image src={item.image} width={120} height={100} alt='sneaker-care-product' />
                                     </div>
                                 </div>
                                 <div>

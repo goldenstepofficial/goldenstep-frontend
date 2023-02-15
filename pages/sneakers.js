@@ -36,9 +36,9 @@ const Sneakers = () => {
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mx-3">
                     {SneakerData.sneakers.map((item, index) => {
                         return (
-                            <div className="text-center mx-2 h-[250px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out">
+                            <div className="text-center mx-2 h-[250px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out" key={index}>
                                 <div className="h-[150px]">
-                                    <Image src={item.image} width={250} height={150} />
+                                    <Image src={item.image} width={250} height={150} alt='sneaker-product' />
                                 </div>
                                 <div>
                                     <p className="text-[14px]">{item.title}</p>

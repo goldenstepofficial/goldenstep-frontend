@@ -20,9 +20,15 @@ const Arrivals = () => {
               <div
                 className="text-center mx-2 h-[250px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out"
                 onClick={() => router.push("/product")}
+                key={index}
               >
                 <div className="h-[150px]">
-                  <Image src={item.image} width={250} height={150} />
+                  <Image
+                    src={item.image}
+                    width={250}
+                    height={150}
+                    alt="sneaker-products"
+                  />
                 </div>
                 <div>
                   <p className="text-[14px]">{item.title}</p>
@@ -52,10 +58,16 @@ const Arrivals = () => {
               <div
                 className="text-center mx-2 h-[370px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out"
                 onClick={() => router.push("/product")}
+                key={index}
               >
                 <div className="h-[250px] overflow-hidden flex flex-col mt-10 items-center">
                   <div className="h-[100px] mx-auto">
-                    <Image src={item.image} width={120} height={100} />
+                    <Image
+                      src={item.image}
+                      width={120}
+                      height={100}
+                      alt="sneaker-care-products"
+                    />
                   </div>
                 </div>
                 <div>

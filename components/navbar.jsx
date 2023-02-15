@@ -14,6 +14,7 @@ const Navbar = () => {
           height={100}
           onClick={() => router.push("/")}
           className="cursor-pointer"
+          alt="goldenstep-logo"
         />
         <div className="flex flex-row w-full justify-around mt-4 items-center text-white text-[18px]">
           <Link
@@ -53,12 +54,14 @@ const Navbar = () => {
               height={30}
               className="mx-2 hover:cursor-pointer"
               onClick={() => router.push("/signup")}
+              alt="user"
             />
             <Image
               src={"/images/cart.png"}
               width={30}
               height={30}
               className="mx-2 hover:cursor-pointer"
+              alt="cart"
             />
           </div>
         </div>
