@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Navbar2 from '../components/navbar2';
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import CareData from "../data/care.json";
@@ -21,8 +20,8 @@ const Care = () => {
     return (
         <div className='overflow-x-hidden'>
             {colorChange ? (
-                <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
-                    <Navbar2 />
+                <div className="fixed top-0 w-full bg-[#231F20] shadow-xl z-[999]">
+                    <Navbar />
                 </div>
             ) : (
                 <div className="fixed top-0 w-full z-[999]">
@@ -32,12 +31,7 @@ const Care = () => {
             <div className="md:h-[600px] h-[300px] top-0 relative">
                 <Image src={"/images/care-poster.webp"} layout="fill" alt="sneaker-care-poster" />
             </div>
-            <div
-            // className="grid grid-cols-2"
-            >
-                {/* <div className="w-[25%]">
-
-                </div> */}
+            <div>
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mx-3 w-full">
                     {CareData.care.map((item, index) => {
                         return (

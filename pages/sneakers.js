@@ -1,5 +1,4 @@
 import Navbar from "../components/navbar"
-import Navbar2 from "../components/navbar2"
 import Footer from "../components/footer"
 import { useState, useEffect } from "react"
 import Image from "next/image"
@@ -21,8 +20,8 @@ const Sneakers = () => {
     return (
         <>
             {colorChange ? (
-                <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
-                    <Navbar2 />
+                <div className="fixed top-0 w-full bg-[#231F20] shadow-xl z-[999]">
+                    <Navbar />
                 </div>
             ) : (
                 <div className="fixed top-0 w-full z-[999]">

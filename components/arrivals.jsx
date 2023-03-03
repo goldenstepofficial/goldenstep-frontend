@@ -9,7 +9,7 @@ const Arrivals = () => {
   return (
     <>
       {console.log("TESTING SNEAKER JSON", SneakerData.sneakers)}
-      <div className="items-center flex flex-col">
+      <div className="items-center flex flex-col bg-[#231F20] text-[#ebebeb]">
         <div className="leading-none flex flex-col items-center">
           <h1 className="text-[40px] text-center mt-10">New Arrivals</h1>
           <p className="text-[24]">Sneakers</p>
@@ -18,7 +18,7 @@ const Arrivals = () => {
           {SneakerData.sneakers.map((item, index) => {
             return (
               <div
-                className="text-center mx-2 h-[250px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out"
+                className="text-center mx-2 h-[250px] mt-10 shadow-2xl cursor-pointer hover:scale-105 transition ease-in-out"
                 onClick={() => router.push("/product")}
                 key={index}
               >
@@ -32,7 +32,7 @@ const Arrivals = () => {
                 </div>
                 <div>
                   <p className="text-[14px]">{item.title}</p>
-                  <p className="border mx-auto w-[30%] mt-2 rounded-lg text-[#FFBC00] bg-black pt-1">
+                  <p className="mx-auto w-[30%] mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
                     ₹{item.price}
                   </p>
                 </div>
@@ -41,14 +41,14 @@ const Arrivals = () => {
           })}
         </div>
         <div
-          className="text-center text-[20px] my-8 py-2 w-[20%] border bg-black text-white rounded-lg shadow-xl hover:cursor-pointer hover:bg-gray-100 hover:text-[#FFBC00]"
+          className="text-center text-[20px] my-8 py-2 md:w-[20%] bg-[#231F20] text-[#ebebeb] rounded-lg shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038]"
           onClick={() => router.push("/sneakers")}
         >
           View More Products
         </div>
       </div>
-      <div className="items-center flex flex-col">
-        <div className="leading-none flex flex-col items-center">
+      <div className="items-center flex flex-col bg-[#231F20]">
+        <div className="leading-none flex flex-col items-center text-[#ebebeb]">
           <h1 className="text-[40px] text-center mt-10">New Arrivals</h1>
           <p className="text-[24]">Care</p>
         </div>
@@ -56,7 +56,7 @@ const Arrivals = () => {
           {CareData.care.map((item, index) => {
             return (
               <div
-                className="text-center mx-2 h-[370px] border mt-10 shadow-xl cursor-pointer hover:scale-105 transition ease-in-out"
+                className="text-center mx-2 h-[370px] mt-10 shadow-2xl cursor-pointer hover:scale-105 transition ease-in-out text-[#ebebeb]"
                 onClick={() => router.push("/product")}
                 key={index}
               >
@@ -72,7 +72,7 @@ const Arrivals = () => {
                 </div>
                 <div>
                   <p className="text-[14px]"> {item.title} </p>
-                  <p className="border mx-auto w-[30%] mt-2 rounded-lg text-[#FFBC00] bg-black pt-1">
+                  <p className="mx-auto w-[30%] mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
                     ₹{item.price}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ const Arrivals = () => {
           })}
         </div>
         <div
-          className="text-center text-[20px] my-8 py-2 w-[20%] border bg-black text-white rounded-lg shadow-xl hover:cursor-pointer hover:bg-gray-100 hover:text-[#FFBC00]"
+          className="text-center text-[20px] my-8 py-2 md:w-[20%] bg-[#231F20] text-[#ebebeb] rounded-lg shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038]"
           onClick={() => router.push("/care")}
         >
           View More Products

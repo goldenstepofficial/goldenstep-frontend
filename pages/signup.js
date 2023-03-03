@@ -1,4 +1,4 @@
-import Navbar2 from '../components/navbar2';
+import Navbar from '../components/navbar';
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import { FaSpinner } from "react-icons/fa";
@@ -51,10 +51,10 @@ const Signup = () => {
 
     return (
         <>
-            <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
-                <Navbar2 />
+            <div className="fixed top-0 w-full bg-[#3c3a3b] shadow-xl z-[999]">
+                <Navbar />
             </div>
-            <div className='my-40 text-center border mx-auto md:w-1/2 flex flex-col items-center'>
+            <div className='my-40 pt-2 rounded-lg text-center border mx-auto md:w-[40%] flex flex-col items-center text-[#ebebeb]'>
                 <h1 className='text-[30px]'>SIGN UP</h1>
                 <form
                     className="flex flex-col justify-center space-y-5 md:w-[80%] w-full rounded-lg p-7"
@@ -166,7 +166,7 @@ const Signup = () => {
                     <div className="flex justify-center">
                         <button
                             type="submit"
-                            className="py-1 px-7 text-white font-bold bg-[#FFBC00] border rounded hover:text-[#FFBC00] hover:bg-white"
+                            className="py-1 px-7 text-white font-bold bg-[#FFBC00] rounded hover:text-[#FFBC00] hover:bg-[#ebebeb]"
                             disabled={showErr || showErr2}
                         >
                             <span>Sign Up</span>

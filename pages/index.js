@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/navbar'
-import Navbar2 from '../components/navbar2';
+// import Navbar2 from '../components/navbar2';
 import Hero from '../components/hero'
 import Arrivals from '../components/arrivals';
 import Footer from '../components/footer';
@@ -27,8 +27,8 @@ export default function Home() {
         <link rel="icon" href="/favicon_io/favicon.ico" />
       </Head>
       {colorChange ? (
-        <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
-          <Navbar2 />
+        <div className="fixed top-0 w-full bg-[#3c3a3b] shadow-xl z-[999]">
+          <Navbar />
         </div>
       ) : (
         <div className="fixed top-0 w-full z-[999]">
