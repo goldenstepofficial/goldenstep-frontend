@@ -29,7 +29,7 @@ const Sneakers = () => {
                 </div>
             )}
             <div className="md:h-[600px] h-[300px] top-0 relative">
-                <Image src={"/images/sneaker-poster.jpeg"} layout="fill" />
+                <Image src={"/images/sneaker-poster.jpeg"} fill />
             </div>
             <div>
                 <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mx-3">

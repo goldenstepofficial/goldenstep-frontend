@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import Navbar from '../components/navbar'
-// import Navbar2 from '../components/navbar2';
 import Hero from '../components/hero'
 import Arrivals from '../components/arrivals';
 import Footer from '../components/footer';
 import { useEffect, useState } from "react";
+import ShoeCare from '../components/shoeCare';
 
-export default function Home() {
+export default function Home({ crates, accessories }) {
   const [colorChange, setColorchange] = useState(false);
   const changeNavbarColor = () => {
     if (window.scrollY >= 80) {
@@ -15,6 +15,7 @@ export default function Home() {
       setColorchange(false);
     }
   };
+
   useEffect(() => {
     window.addEventListener("scroll", changeNavbarColor);
   }, []);
@@ -36,8 +37,55 @@ export default function Home() {
         </div>
       )}
       <Hero />
-      <Arrivals />
+      <Arrivals props={crates} />
+      <ShoeCare props={accessories} />
       <Footer />
     </>
   )
+}
+
+export const getServerSideProps = async () => {
+  let crates = null;
+  let kit = null;
+  let accessories = null;
+
+  async function getCrates() {
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    await fetch("https://backend.goldenstep.in/store/products/?category=1", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        crates = result;
+      })
+      .catch((error) => console.log("error", error));
+  }
+
+  await getCrates();
+
+  async function getAccessories() {
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow'
+    };
+
+    await fetch("https://backend.goldenstep.in/store/products/?category=3", requestOptions)
+      .then((response) => response.json())
+      .then((result) => {
+        accessories = result;
+      })
+      .catch((error) => console.log("error", error));
+  }
+
+  await getAccessories();
+
+  return {
+    props: {
+      crates,
+      kit,
+      accessories
+    },
+  };
 }

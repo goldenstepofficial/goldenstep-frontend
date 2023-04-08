@@ -45,16 +45,16 @@ const footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/kit">
                     <span className="text-base text-gray-300 hover:text-gray-100">
                       Kit
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/accessories">
                     <span className="text-base text-gray-300 hover:text-gray-100">
-                      Best Of All
+                      Accessories
                     </span>
                   </Link>
                 </li>

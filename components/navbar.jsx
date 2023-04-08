@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useRef, useEffect } from "react";
+import { useStateContext } from "../context/StateContext";
+import Cart from "./Cart";
 
 const Navbar = () => {
   const router = useRouter();
@@ -11,6 +13,8 @@ const Navbar = () => {
   const [isSearchButtonVisible, setIsSearchButtonVisible] = useState(false);
   const [width, setWidth] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { showCart, setShowCart } = useStateContext();
 
   const handleIconClick = () => {
     setIsExpanded(!isExpanded);
@@ -85,30 +89,27 @@ const Navbar = () => {
                 height={30}
                 className="mx-2 hover:cursor-pointer"
                 alt="cart"
+                onClick={() => {
+                  setShowCart(true);
+                }}
               />
             </div>
           </div>
           <div className="flex flex-row w-full justify-around mt-5 items-center text-[#ebebeb] text-[18px]">
             <Link
-              href={"/care"}
+              href={"/accessories"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
-              Store
+              Accessories
             </Link>
             <Link
-              href={"/sneakers"}
+              href={"/crates"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Crates
             </Link>
             <Link
-              href={"/"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Products
-            </Link>
-            <Link
-              href={"/"}
+              href={"/kit"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Kit
@@ -117,7 +118,7 @@ const Navbar = () => {
               href={"/"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
-              Best Of All
+              Sneakers
             </Link>
             <div className="flex flex-row items-center relative" ref={inputRef}>
               <Image
@@ -142,13 +143,14 @@ const Navbar = () => {
               <button
                 className={`${
                   isSearchButtonVisible ? "block" : "hidden"
-                } absolute top-0 right-0 bg-[#ebebeb] hover:bg-gray-300 text-[#3c3a3b] hover:text-gray-900 cursor-pointer px-2 py-2 rounded text-[14px]`}
+                } absolute top-0 right-0 bg-[#ebebeb] hover:bg-gray-300 text-[#3c3a3b] hover:text-gray-900 cursor-pointer px-2 py-[8.5px] rounded text-[14px]`}
               >
                 Search
               </button>
             </div>
           </div>
         </div>
+        {showCart && <Cart />}
       </>
     );
   }
@@ -199,6 +201,9 @@ const Navbar = () => {
               height={20}
               className="mx-2 hover:cursor-pointer"
               alt="cart"
+              onClick={() => {
+                setShowCart(true);
+              }}
             />
           </div>
         </div>
@@ -213,25 +218,19 @@ const Navbar = () => {
               onClick={() => setMenuOpen(false)}
             />
             <Link
-              href={"/care"}
+              href={"/accessories"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
-              Store
+              Accessories
             </Link>
             <Link
-              href={"/sneakers"}
+              href={"/crates"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Crates
             </Link>
             <Link
-              href={"/"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Products
-            </Link>
-            <Link
-              href={"/"}
+              href={"/kit"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Kit
@@ -240,7 +239,7 @@ const Navbar = () => {
               href={"/"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
-              Best Of All
+              Sneakers
             </Link>
             <div className="flex flex-row items-center relative" ref={inputRef}>
               <Image
@@ -273,6 +272,7 @@ const Navbar = () => {
           </div>
         )}
       </div>
+      {showCart && <Cart />}
     </>
   );
 };
