@@ -109,24 +109,6 @@ const CratesComponents = ({ props }) => {
           <div className="w-[80%] mx-auto mt-3 p-2 border rounded text-center bg-[#231F20] text-[#ebebeb] shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038] hover:border-none">
             Buy Now
           </div>
-          {props.details?.components ? (
-            <>
-              <div className=" mx-8 md:mx-0">
-                <h1 className="text-[24px] font-extrabold mt-5 text-center md:text-left">
-                  What's Inside ?
-                </h1>
-                <ul className="mt-1 text-[14px] w-[81%] md:w-full md:mx-0 mx-auto">
-                  {props.details.components.map((component, index) => (
-                    <li key={index}>
-                      - {component.quantity} {component.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </>
-          ) : (
-            <></>
-          )}
           <div className="mt-5 mx-8 md:mx-0 text-center md:text-left">
             <h1 className="text-[24px] font-extrabold">About the Product:</h1>
             <p className="mt-1 text-[14px]">{props.description}</p>

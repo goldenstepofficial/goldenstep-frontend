@@ -184,7 +184,7 @@ const KitComponent = ({ props }) => {
 
           <div className=" mx-8 md:mx-0">
             <h1 className="text-[24px] font-extrabold mt-5 text-center md:text-left">
-              What's Inside ?
+              What&apos;s Inside ?
             </h1>
             <ul className="mt-1 text-[14px] w-[81%] md:w-full md:mx-0 mx-auto">
               {props.details.components.map((component, index) => (
