@@ -21,7 +21,7 @@ const TermsConditions = () => {
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Limitation of Liability</h2>
                     <p className="mt-6 text-gray-500">In no event shall Golden Step be liable for any damages, including but not limited to, direct, indirect, incidental, special, or consequential damages, arising from the use of our Website or any content on our Website.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Indemnification</h2>
-                    <p className="mt-6 text-gray-500">You agree to indemnify and hold Golden Step and its affiliates, officers, directors, employees, and agents harmless from any claims, losses, damages, liabilities, and expenses, including reasonable attorneys' fees, arising from your use of our Website or your violation of these Terms.</p>
+                    <p className="mt-6 text-gray-500">You agree to indemnify and hold Golden Step and its affiliates, officers, directors, employees, and agents harmless from any claims, losses, damages, liabilities, and expenses, including reasonable attorneys&apos; fees, arising from your use of our Website or your violation of these Terms.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Governing Law</h2>
                     <p className="mt-6 text-gray-500">These Terms shall be governed by and construed in accordance with the laws of India. Any dispute arising under these Terms shall be resolved in accordance with the dispute resolution provisions set forth in these Terms.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Dispute Resolution</h2>
