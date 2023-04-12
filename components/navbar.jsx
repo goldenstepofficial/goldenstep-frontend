@@ -53,7 +53,7 @@ const Navbar = () => {
         <div className="flex flex-col items-center w-full pb-2">
           <div className="grid grid-cols-3 w-full items-center">
             <button
-              className="flex flex-row items-center justify-start ml-3 text-[#ebebeb]"
+              className="flex flex-row items-center justify-start ml-3 text-black"
               onClick={() => router.push("/signup")}
             >
               <span>Sign In</span>
@@ -90,12 +90,12 @@ const Navbar = () => {
                 className="mx-2 hover:cursor-pointer"
                 alt="cart"
                 onClick={() => {
-                  setShowCart(true);
+                  setShowCart(!showCart);
                 }}
               />
             </div>
           </div>
-          <div className="flex flex-row w-full justify-around mt-5 items-center text-[#ebebeb] text-[18px]">
+          <div className="flex flex-row w-full justify-around mt-5 items-center text-black text-[18px]">
             <Link
               href={"/accessories"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
@@ -202,7 +202,7 @@ const Navbar = () => {
               className="mx-2 hover:cursor-pointer"
               alt="cart"
               onClick={() => {
-                setShowCart(true);
+                setShowCart(!showCart);
               }}
             />
           </div>

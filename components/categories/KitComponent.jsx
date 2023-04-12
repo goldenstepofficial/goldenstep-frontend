@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useState } from "react";
+import { useStateContext } from "../../context/StateContext";
 
 const KitComponent = ({ props }) => {
   const [cartGif, setCartGif] = useState(false);
   const [heartGif, setHeartGif] = useState(false);
+  const [cartId, setCartId] = useState("");
+
+  const { showCart, setShowCart } = useStateContext();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -24,9 +28,60 @@ const KitComponent = ({ props }) => {
     setSelectedImage(image);
   };
 
+  const addItem = () => {
+    setCartGif(true);
+    if (cartId === null) {
+      var requestOptions = {
+        method: "POST",
+        redirect: "follow",
+      };
+
+      fetch("https://backend.goldenstep.in/store/carts/", requestOptions)
+        .then((response) => response.json())
+        .then((result) => {
+          setCartGif(false);
+          const data = result;
+          localStorage.setItem("cartId", data.id);
+          addItemCart();
+        })
+        .catch((error) => console.log("error", error));
+    } else {
+      addItemCart();
+    }
+  };
+
+  const addItemCart = () => {
+    setCartGif(true);
+    var formdata = new FormData();
+    formdata.append("product_id", props.id);
+    formdata.append("quantity", quantity);
+
+    var requestOptions = {
+      method: "POST",
+      body: formdata,
+      redirect: "follow",
+    };
+
+    fetch(
+      `https://backend.goldenstep.in/store/carts/${cartId}/items/`,
+      requestOptions
+    )
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        setCartGif(false);
+        setShowCart(true);
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    setCartId(localStorage.getItem("cartId"));
+  }, []);
+
   return (
     <>
-      <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-[#ebebeb] md:h-screen">
+      <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
           <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
             <img
@@ -66,8 +121,7 @@ const KitComponent = ({ props }) => {
           <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onMouseEnter={() => setCartGif(true)}
-              onMouseLeave={() => setCartGif(false)}
+              onClick={addItem}
             >
               {cartGif ? (
                 <Image

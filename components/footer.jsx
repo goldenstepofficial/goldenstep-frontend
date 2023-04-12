@@ -2,33 +2,26 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const footer = () => {
+const Footer = () => {
   return (
     <>
-      <footer className="mt-12 bg-[#3c3a3b] py-10">
+      <footer className="mt-12 bg-black py-10">
         <div>
           <div className="grid grid-cols-2 justify-items-center md:grid-cols-4">
             <div>
               <h3 className="text-lg font-medium text-gray-100">About</h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <Link href="/">
+                  <Link href="/about-us">
                     <span className="text-base text-gray-300 hover:text-gray-100">
                       About Us
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/contact-us">
                     <span className="text-base text-gray-300 hover:text-gray-100">
-                      Our Story
-                    </span>
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/">
-                    <span className="text-base text-gray-300 hover:text-gray-100">
-                      Press
+                      Contact Us
                     </span>
                   </Link>
                 </li>
@@ -38,7 +31,7 @@ const footer = () => {
               <h3 className="text-lg font-medium text-gray-100">Products</h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <Link href="/">
+                  <Link href="/crates">
                     <span className="text-base text-gray-300 hover:text-gray-100">
                       Crates
                     </span>
@@ -66,16 +59,23 @@ const footer = () => {
               </h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <Link href="/">
+                  <Link href="/privacy-policy">
                     <span className="text-base text-gray-300 hover:text-gray-100">
-                      Contact Us
+                      Privacy Policy
                     </span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/terms-conditions">
                     <span className="text-base text-gray-300 hover:text-gray-100">
-                      FAQs
+                      Terms and Conditions
+                    </span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/cancellation-refunds-policy">
+                    <span className="text-base text-gray-300 hover:text-gray-100">
+                      Cancellation and Refunds Policy
                     </span>
                   </Link>
                 </li>
@@ -119,4 +119,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;

@@ -26,7 +26,7 @@ const CratesComponents = ({ props }) => {
 
   return (
     <>
-      <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-[#ebebeb] md:h-screen">
+      <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
           <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
             <img
@@ -49,10 +49,10 @@ const CratesComponents = ({ props }) => {
           </div>
         </div>
         <div className="flex flex-col md:mx-10 md:mt-0 mt-3 overflow-y-scroll scrollbar">
-          <h1 className="md:text-[40px] text-[34px] uppercase text-center">
+          <h1 className="md:text-[40px] text-[22px] uppercase text-center">
             {props.name}
           </h1>
-          <span className="text-[25px] text-center ml-5 md:mt-5 mt-1">
+          <span className="text-[20px] text-center ml-5 md:mt-5 mt-1">
             ₹{props.price}/-
           </span>
           <div className="flex flex-row items-center ml-5 md:mt-5 mt-1">

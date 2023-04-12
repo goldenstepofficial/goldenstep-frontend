@@ -26,7 +26,7 @@ const AccessoriesComponent = ({ props }) => {
 
   return (
     <>
-      <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-[#ebebeb] md:h-screen">
+      <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
           <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
             <img

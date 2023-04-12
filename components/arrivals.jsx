@@ -1,6 +1,3 @@
-import Image from "next/image";
-import SneakerData from "../data/sneaker.json";
-import CareData from "../data/care.json";
 import { useRouter } from "next/router";
 
 const Arrivals = ({ props }) => {
@@ -8,7 +5,7 @@ const Arrivals = ({ props }) => {
 
   return (
     <>
-      <div className="items-center flex flex-col bg-[#231F20] text-[#ebebeb]">
+      <div className="items-center flex flex-col text-black">
         <div className="leading-none flex flex-col items-center">
           <h1 className="text-[40px] text-center mt-10">New Arrivals</h1>
           <p className="text-[24]">Premium Crates</p>

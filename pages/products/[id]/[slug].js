@@ -3,24 +3,23 @@ import Footer from '../../../components/footer';
 import KitComponent from '../../../components/categories/KitComponent';
 import AccessoriesComponent from '../../../components/categories/AccessoriesComponent';
 import CratesComponents from '../../../components/categories/CratesComponents';
+import Layout from '../../../components/Layout/Layout';
 
 const Product = ({ products }) => {
 
     return (
         <>
-            <div className="fixed top-0 w-full bg-[#3c3a3b] shadow-xl z-[999]">
-                <Navbar />
-            </div>
-            {products.category == "Accessories" && (
-                <AccessoriesComponent props={products} />
-            )}
-            {products.category == "Kit" && (
-                <KitComponent props={products} />
-            )}
-            {products.category == "Crates" && (
-                <CratesComponents props={products} />
-            )}
-            <Footer />
+            <Layout>
+                {products.category == "Accessories" && (
+                    <AccessoriesComponent props={products} />
+                )}
+                {products.category == "Kit" && (
+                    <KitComponent props={products} />
+                )}
+                {products.category == "Crates" && (
+                    <CratesComponents props={products} />
+                )}
+            </Layout>
         </>
     )
 }
