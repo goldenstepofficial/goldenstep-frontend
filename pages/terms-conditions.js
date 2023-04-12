@@ -7,7 +7,7 @@ const TermsConditions = () => {
             <Layout>
                 <div className="max-w-4xl md:mt-32 mt-10 mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center">Terms and Conditions for Golden Step (India)</h1>
-                    <p className="mt-6 text-gray-500">Welcome to Golden Step! These terms and conditions ("Terms") govern your use of our website, www.goldenstep.in ("Website"), and any services, features, or content provided by Golden Step. By using our Website, you agree to these Terms. If you do not agree to these Terms, please do not use our Website.</p>
+                    <p className="mt-6 text-gray-500">Welcome to Golden Step! These terms and conditions (&quot;Terms&quot;) govern your use of our website, www.goldenstep.in (&quot;Website&quot;), and any services, features, or content provided by Golden Step. By using our Website, you agree to these Terms. If you do not agree to these Terms, please do not use our Website.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Use of Website</h2>
                     <p className="mt-6 text-gray-500">You may use our Website for lawful purposes only. You may not use our Website to violate any laws or regulations in India, infringe on any intellectual property rights, or harm or exploit any person or entity. You may not use our Website to transmit any spam, viruses, or harmful code.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Intellectual Property</h2>
@@ -17,7 +17,7 @@ const TermsConditions = () => {
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Payments</h2>
                     <p className="mt-6 text-gray-500">If you make any payments on our Website, you agree to pay all applicable fees and taxes. You may not use any fraudulent payment methods. All payments are final and non-refundable.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Disclaimer of Warranties</h2>
-                    <p className="mt-6 text-gray-500">Our Website is provided "as is" and without warranties of any kind, whether express or implied. We do not guarantee that our Website will be uninterrupted or error-free, or that any defects will be corrected. We are not responsible for any damages arising from the use of our Website.</p>
+                    <p className="mt-6 text-gray-500">Our Website is provided &quot;as is&quot; and without warranties of any kind, whether express or implied. We do not guarantee that our Website will be uninterrupted or error-free, or that any defects will be corrected. We are not responsible for any damages arising from the use of our Website.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Limitation of Liability</h2>
                     <p className="mt-6 text-gray-500">In no event shall Golden Step be liable for any damages, including but not limited to, direct, indirect, incidental, special, or consequential damages, arising from the use of our Website or any content on our Website.</p>
                     <h2 className="mt-10 text-lg font-medium text-gray-900">Indemnification</h2>
