@@ -41,10 +41,10 @@ const Accessories = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="grid md:grid-cols-3 grid-cols-1">
+                    <div className="grid md:grid-cols-3 grid-cols-2">
                         {accessories.map((item, index) => {
                             return (
-                                <div className="text-center mx-10 h-[300px] pt-2 border mt-10 shadow-xl cursor-pointer hover:scale-[102%] transition ease-in-out" key={index}
+                                <div className="text-center md:mx-10 mx-2 pb-3 md:h-[300px] pt-2 border mt-10 shadow-xl cursor-pointer hover:scale-[102%] transition ease-in-out" key={index}
                                     onClick={() => router.push(`products/${item.id}/${item.slug}`)}
                                 >
                                     <div className="h-[200px] flex items-center justify-center">
@@ -56,8 +56,8 @@ const Accessories = () => {
                                         />
                                     </div>
                                     <div>
-                                        <p className="md:text-[20px] uppercase mt-3 text-black">{item.name}</p>
-                                        <p className="font-bold mx-auto w-fit px-2 mt-1 rounded-lg text-black pt-1">
+                                        <p className="md:text-[20px] text-[11px] font-bold uppercase mt-3 text-black">{item.name}</p>
+                                        <p className="font-bold mx-auto w-fit px-2 mt-1 rounded-lg text-black md:text-[16px] text-[14px] pt-1">
                                             Rs {item.price}
                                         </p>
                                     </div>
