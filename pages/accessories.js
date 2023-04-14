@@ -56,7 +56,7 @@ const Accessories = () => {
                                         />
                                     </div>
                                     <div>
-                                        <p className="md:text-[20px] text-[11px] font-bold uppercase mt-3 text-black">{item.name}</p>
+                                        <p className="md:text-[18px] text-[11px] font-bold uppercase mt-3 text-black">{item.name}</p>
                                         <p className="font-bold mx-auto w-fit px-2 mt-1 rounded-lg text-black md:text-[16px] text-[14px] pt-1">
                                             Rs {item.price}
                                         </p>

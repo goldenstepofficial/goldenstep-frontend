@@ -58,9 +58,10 @@ const AccessoriesComponent = ({ props }) => {
           <h1 className="md:text-[40px] text-[34px] uppercase text-center">
             {props.name}
           </h1>
-          <span className="text-[25px] text-center ml-5 md:mt-5 mt-1">
-            Rs {props.price}/-
-          </span>
+          <div className="flex flex-row items-center text-[17px] text-center w-full justify-center md:mt-5 mt-1">
+            <span class="line-through pr-2">Rs {props.details.oldPrice}</span>
+            <span className="text-[20px] text-center">Rs {props.price}/-</span>
+          </div>
 
           <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
             <button
