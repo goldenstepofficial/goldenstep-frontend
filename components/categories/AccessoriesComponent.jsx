@@ -1,27 +1,26 @@
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
+import { useStateContext } from "../../context/StateContext";
 
 const AccessoriesComponent = ({ props }) => {
-  const [cartGif, setCartGif] = useState(false);
-  const [heartGif, setHeartGif] = useState(false);
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
+  const {
+    cartGif,
+    heartGif,
+    quantity,
+    handleDecrease,
+    handleIncrease,
+    addItem,
+  } = useStateContext();
 
   const [selectedImage, setSelectedImage] = useState(props.thumbnail);
 
   const handleProductViewClick = (image) => {
     setSelectedImage(image);
+  };
+
+  const addItemToCart = () => {
+    addItem(props.id);
   };
 
   return (
@@ -60,92 +59,13 @@ const AccessoriesComponent = ({ props }) => {
             {props.name}
           </h1>
           <span className="text-[25px] text-center ml-5 md:mt-5 mt-1">
-            ₹{props.price}/-
+            Rs {props.price}/-
           </span>
-
-          <div className="flex flex-row items-center ml-5 md:mt-5 mt-2">
-            <button
-              onClick={handleDecrease}
-              className="border rounded-l py-2 px-4 bg-[#3a3c3b]"
-            >
-              <span className="font-bold">-</span>
-            </button>
-            <span className="border-t border-b px-8 py-2 bg-[#3a3c3b]">
-              {quantity}
-            </span>
-            <button
-              onClick={handleIncrease}
-              className="border rounded-r py-2 px-4 bg-[#3a3c3b]"
-            >
-              <span className="font-bold">+</span>
-            </button>
-          </div>
-
-          {props.variations.color1 && props.variations.color2 && (
-            <div className="mt-5 md:mx-0 md:w-full w-[80%] mx-auto">
-              <h1 className="text-center">Choose the Colors From Below:</h1>
-              <div className="flex flex-row items-center w-full mt-2 justify-between space-x-4">
-                <div className="flex flex-col">
-                  <label htmlFor="color1" className="font-medium">
-                    Color 1:
-                  </label>
-                  <select
-                    id="color1"
-                    name="color1"
-                    className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                  >
-                    {props.variations.color1.map((color) => (
-                      <option key={color} value={color}>
-                        {color}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div className="flex flex-col">
-                  <label htmlFor="color2" className="font-medium">
-                    Color 2:
-                  </label>
-                  <select
-                    id="color2"
-                    name="color2"
-                    className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-                  >
-                    {props.variations.color2.map((color) => (
-                      <option key={color} value={color}>
-                        {color}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {props.variations.color && (
-            <div className="mt-8 md:mx-0 md:w-full md:ml-5 w-[80%] mx-auto">
-              <div className="flex flex-col">
-                <h1 className="">Choose the Color From Below:</h1>
-                <select
-                  id="color1"
-                  name="color1"
-                  className="block pl-3 pr-10 py-2 mt-1 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md md:w-[30%] w-[90%]"
-                >
-                  {props.variations.color.map((color) => (
-                    <option key={color} value={color}>
-                      {color}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          )}
 
           <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onMouseEnter={() => setCartGif(true)}
-              onMouseLeave={() => setCartGif(false)}
+              onClick={addItemToCart}
             >
               {cartGif ? (
                 <Image
@@ -160,8 +80,6 @@ const AccessoriesComponent = ({ props }) => {
             </button>
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onMouseEnter={() => setHeartGif(true)}
-              onMouseLeave={() => setHeartGif(false)}
             >
               {heartGif ? (
                 <Image

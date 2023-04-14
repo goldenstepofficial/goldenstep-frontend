@@ -9,9 +9,9 @@ const ShoeCare = ({ props }) => {
         <div className="leading-none flex flex-col items-center">
           <h1 className="text-[40px] text-center mt-10">Shoe Care</h1>
         </div>
-        <div className="grid md:grid-cols-4 grid-cols-2 justify-center w-full mx-3">
+        <div className="grid md:grid-cols-4 grid-cols-1 justify-center w-full mx-3">
           {props
-            .filter((item, index) => [1, 2, 4, 6, 7].includes(index))
+            ?.filter((item, index) => [1, 2, 4, 6, 7].includes(index))
             .map((item, index) => {
               return (
                 <div
@@ -31,8 +31,8 @@ const ShoeCare = ({ props }) => {
                   </div>
                   <div>
                     <p className="text-[16px]">{item.name}</p>
-                    <p className="mx-auto w-[30%] mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
-                      ₹{item.price}
+                    <p className="mx-auto w-fit px-2 mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
+                      Rs {item.price}
                     </p>
                   </div>
                 </div>
@@ -40,7 +40,7 @@ const ShoeCare = ({ props }) => {
             })}
         </div>
         <div
-          className="text-center text-[20px] my-8 py-2 md:w-[20%] bg-[#231F20] text-[#ebebeb] rounded-lg shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038]"
+          className="text-center text-[20px] my-8 md:px-0 px-2 py-2 md:w-[20%] bg-[#231F20] text-[#ebebeb] rounded-lg shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038]"
           onClick={() => router.push("/accessories")}
         >
           View More Products

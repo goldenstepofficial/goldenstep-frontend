@@ -69,10 +69,20 @@ const CheckoutComponent = ({ cart }) => {
 
     return (
         <>
-            <div className='flex flex-row w-full justify-between pl-5'>
-                <div className='w-[60%] mr-10'>
+            <div
+                className='w-[20%] mx-auto cursor-pointer md:hidden block mb-3'
+                onClick={() => router.push("/")}
+            >
+                <img
+                    src="/images/logo.jpg"
+                    alt="goldenstep-logo"
+                    className='h-16 justify-center'
+                />
+            </div>
+            <div className='flex md:flex-row flex-col-reverse w-full justify-between md:pl-5'>
+                <div className='md:w-[60%] md:mr-10 md:mx-0 mx-2'>
                     <div
-                        className='w-full flex justify-center cursor-pointer'
+                        className='w-[20%] mx-auto cursor-pointer md:block hidden mb-5'
                         onClick={() => router.push("/")}
                     >
                         <img
@@ -84,7 +94,7 @@ const CheckoutComponent = ({ cart }) => {
                     {!isPayment &&
                         <form onSubmit={handleSubmit} className="space-y-6">
                             <div>
-                                <h1 className='mb-1'>Contact Information:</h1>
+                                <h1 className='mb-1 md:mt-0 mt-2'>Contact Information:</h1>
                                 <div>
                                     <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                                         Email
@@ -269,11 +279,11 @@ const CheckoutComponent = ({ cart }) => {
                     }
                     {isPayment && <CheckoutPage />}
                 </div>
-                <div className='w-[40%] bg-[#ededed] border-black border-l'>
+                <div className='md:w-[40%] w-full bg-[#ededed] md:border-black md:border-l'>
                     {cart.items.map((data, index) => (
                         <>
                             <div
-                                className="flex flex-row justify-between border-y mb-2 p-5"
+                                className="flex flex-row justify-between border-y mb-2 py-5 px-3"
                                 key={index}
                             >
                                 <img
@@ -297,7 +307,7 @@ const CheckoutComponent = ({ cart }) => {
                             </div>
                         </>
                     ))}
-                    <h1 className="text-[20px] mb-2">
+                    <h1 className="text-[20px] mb-2 md:mx-0 mx-2">
                         Subtotal: Rs. {cart.total_price}
                     </h1>
                 </div>

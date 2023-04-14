@@ -11,7 +11,7 @@ const Arrivals = ({ props }) => {
           <p className="text-[24]">Premium Crates</p>
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1 justify-center w-full mx-3">
-          {props.slice(2, 4).map((item, index) => {
+          {props?.slice(2, 4).map((item, index) => {
             return (
               <div
                 className="flex flex-col items-center text-center h-[250px] mt-10 shadow-2xl cursor-pointer hover:scale-105 transition ease-in-out mx-10"
@@ -28,8 +28,8 @@ const Arrivals = ({ props }) => {
                 </div>
                 <div>
                   <p className="text-[16px]">{item.name}</p>
-                  <p className="mx-auto w-[30%] mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
-                    ₹{item.price}
+                  <p className="mx-auto w-fit px-2 mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
+                    Rs {item.price}
                   </p>
                 </div>
               </div>
@@ -37,7 +37,7 @@ const Arrivals = ({ props }) => {
           })}
         </div>
         <div
-          className="text-center text-[20px] my-8 py-2 md:w-[20%] bg-[#231F20] text-[#ebebeb] rounded-lg shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038]"
+          className="text-center text-[20px] px-2 md:px-0 my-8 py-2 md:w-[20%] bg-[#231F20] text-[#ebebeb] rounded-lg shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038]"
           onClick={() => router.push("/crates")}
         >
           View All Crates

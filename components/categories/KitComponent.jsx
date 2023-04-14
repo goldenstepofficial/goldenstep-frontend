@@ -4,23 +4,14 @@ import { useState } from "react";
 import { useStateContext } from "../../context/StateContext";
 
 const KitComponent = ({ props }) => {
-  const [cartGif, setCartGif] = useState(false);
-  const [heartGif, setHeartGif] = useState(false);
-  const [cartId, setCartId] = useState("");
-
-  const { showCart, setShowCart } = useStateContext();
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
+  const {
+    cartGif,
+    heartGif,
+    quantity,
+    handleDecrease,
+    handleIncrease,
+    addItem,
+  } = useStateContext();
 
   const [selectedImage, setSelectedImage] = useState(props.thumbnail);
 
@@ -28,56 +19,9 @@ const KitComponent = ({ props }) => {
     setSelectedImage(image);
   };
 
-  const addItem = () => {
-    setCartGif(true);
-    if (cartId === null) {
-      var requestOptions = {
-        method: "POST",
-        redirect: "follow",
-      };
-
-      fetch("https://backend.goldenstep.in/store/carts/", requestOptions)
-        .then((response) => response.json())
-        .then((result) => {
-          setCartGif(false);
-          const data = result;
-          localStorage.setItem("cartId", data.id);
-          addItemCart();
-        })
-        .catch((error) => console.log("error", error));
-    } else {
-      addItemCart();
-    }
+  const addItemToCart = () => {
+    addItem(props.id);
   };
-
-  const addItemCart = () => {
-    setCartGif(true);
-    var formdata = new FormData();
-    formdata.append("product_id", props.id);
-    formdata.append("quantity", quantity);
-
-    var requestOptions = {
-      method: "POST",
-      body: formdata,
-      redirect: "follow",
-    };
-
-    fetch(
-      `https://backend.goldenstep.in/store/carts/${cartId}/items/`,
-      requestOptions
-    )
-      .then((response) => response.text())
-      .then((result) => {
-        console.log(result);
-        setCartGif(false);
-        setShowCart(true);
-      })
-      .catch((error) => console.log("error", error));
-  };
-
-  useEffect(() => {
-    setCartId(localStorage.getItem("cartId"));
-  }, []);
 
   return (
     <>
@@ -115,13 +59,13 @@ const KitComponent = ({ props }) => {
             {props.name}
           </h1>
           <span className="text-[25px] text-center ml-5 md:mt-5 mt-1">
-            ₹{props.price}/-
+            Rs {props.price}/-
           </span>
 
           <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onClick={addItem}
+              onClick={addItemToCart}
             >
               {cartGif ? (
                 <Image
@@ -136,8 +80,6 @@ const KitComponent = ({ props }) => {
             </button>
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onMouseEnter={() => setHeartGif(true)}
-              onMouseLeave={() => setHeartGif(false)}
             >
               {heartGif ? (
                 <Image

@@ -4,7 +4,7 @@ import Image from "next/image";
 const Hero = () => {
   return (
     <>
-      <div className="md:h-[600px] h-[300px] top-0 relative">
+      <div className="md:h-[600px] h-[300px] top-0 relative md:mt-32 mt-12">
         <Image src={"/images/hero.jpeg"} fill alt="hero-banner" />
         {/* <div className="absolute mt-40 ml-5 text-[#ebebeb] md:text-[50px] text-[20px] lg:w-[30%] font-extrabold leading-none">
             <span>DESIGNED FOR THE FREEDOM TO WALK</span>

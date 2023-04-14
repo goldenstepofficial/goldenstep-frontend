@@ -1,27 +1,26 @@
 import React from "react";
 import Image from "next/image";
 import { useState } from "react";
+import { useStateContext } from "../../context/StateContext";
 
 const CratesComponents = ({ props }) => {
-  const [cartGif, setCartGif] = useState(false);
-  const [heartGif, setHeartGif] = useState(false);
-
-  const [quantity, setQuantity] = useState(1);
-
-  const handleDecrease = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleIncrease = () => {
-    setQuantity(quantity + 1);
-  };
+  const {
+    cartGif,
+    heartGif,
+    quantity,
+    handleDecrease,
+    handleIncrease,
+    addItem,
+  } = useStateContext();
 
   const [selectedImage, setSelectedImage] = useState(props.thumbnail);
 
   const handleProductViewClick = (image) => {
     setSelectedImage(image);
+  };
+
+  const addItemToCart = () => {
+    addItem(props.id);
   };
 
   return (
@@ -36,47 +35,37 @@ const CratesComponents = ({ props }) => {
               alt="product-image"
             />
           </div>
-          <div className="md:mt-2 mx-5 grid grid-cols-4 items-center gap-5">
+
+          <div className="mt-2 mx-5 grid grid-cols-4 items-center gap-5">
             {props.images?.map((image, index) => (
               <div
                 key={index}
                 className="cursor-pointer"
                 onClick={() => handleProductViewClick(image)}
               >
-                <img src={image} width={100} height={100} alt="product-image" />
+                <img
+                  src={image}
+                  width={100}
+                  height={100}
+                  alt="product-image"
+                  className="rounded"
+                />
               </div>
             ))}
           </div>
         </div>
         <div className="flex flex-col md:mx-10 md:mt-0 mt-3 overflow-y-scroll scrollbar">
-          <h1 className="md:text-[40px] text-[22px] uppercase text-center">
+          <h1 className="md:text-[40px] text-[34px] uppercase text-center">
             {props.name}
           </h1>
-          <span className="text-[20px] text-center ml-5 md:mt-5 mt-1">
-            ₹{props.price}/-
+          <span className="text-[25px] text-center ml-5 md:mt-5 mt-1">
+            Rs {props.price}/-
           </span>
-          <div className="flex flex-row items-center ml-5 md:mt-5 mt-1">
-            <button
-              onClick={handleDecrease}
-              className="border rounded-l py-2 px-4 bg-[#3a3c3b]"
-            >
-              <span className="font-bold">-</span>
-            </button>
-            <span className="border-t border-b px-8 py-2 bg-[#3a3c3b]">
-              {quantity}
-            </span>
-            <button
-              onClick={handleIncrease}
-              className="border rounded-r py-2 px-4 bg-[#3a3c3b]"
-            >
-              <span className="font-bold">+</span>
-            </button>
-          </div>
-          <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-5">
+
+          <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onMouseEnter={() => setCartGif(true)}
-              onMouseLeave={() => setCartGif(false)}
+              onClick={addItemToCart}
             >
               {cartGif ? (
                 <Image
@@ -91,8 +80,6 @@ const CratesComponents = ({ props }) => {
             </button>
             <button
               className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onMouseEnter={() => setHeartGif(true)}
-              onMouseLeave={() => setHeartGif(false)}
             >
               {heartGif ? (
                 <Image

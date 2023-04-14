@@ -39,8 +39,8 @@ const Accessories = () => {
 
 
     return (
-        <div className='overflow-x-hidden'>
-            <Layout>
+        <Layout>
+            <div className='overflow-x-hidden md:mt-32 mt-0'>
                 <div className="relative">
                     <div className="md:h-[90vh] h-[50vh]">
                         <Image
@@ -72,9 +72,9 @@ const Accessories = () => {
                                         />
                                     </div>
                                     <div>
-                                        <p className="md:text-[20px] uppercase mt-3 text-white">{item.name}</p>
-                                        <p className="border mx-auto w-[30%] mt-1 rounded-lg text-[#FFBC00] bg-black pt-1">
-                                            ₹{item.price}
+                                        <p className="md:text-[20px] uppercase mt-3 text-black">{item.name}</p>
+                                        <p className="border mx-auto w-fit px-2 mt-1 rounded-lg text-[#FFBC00] bg-black pt-1">
+                                            Rs{item.price}
                                         </p>
                                     </div>
                                 </div>
@@ -82,8 +82,8 @@ const Accessories = () => {
                         })}
                     </div>
                 </div>
-            </Layout>
-        </div>
+            </div >
+        </Layout>
     )
 }
 

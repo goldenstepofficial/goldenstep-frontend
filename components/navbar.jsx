@@ -95,7 +95,7 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row w-full justify-around mt-5 items-center text-black text-[18px]">
+          <div className="flex flex-row w-full justify-around mt-5 items-center text-black text-[18px] uppercase">
             <Link
               href={"/accessories"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
@@ -115,7 +115,7 @@ const Navbar = () => {
               Kit
             </Link>
             <Link
-              href={"/"}
+              href={"/sneakers"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Sneakers
@@ -208,7 +208,7 @@ const Navbar = () => {
           </div>
         </div>
         {menuOpen && (
-          <div className="flex flex-col bg-[#3c3a3b] h-screen top-0 absolute w-full z-10 justify-around items-center text-[#ebebeb] text-[18px]">
+          <div className="flex flex-col bg-[#3c3a3b] h-screen top-0 absolute w-full z-10 justify-around items-center text-[#ebebeb] text-[18px] uppercase">
             <Image
               src={"/images/close.png"}
               width={30}
@@ -236,7 +236,7 @@ const Navbar = () => {
               Kit
             </Link>
             <Link
-              href={"/"}
+              href={"/sneakers"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Sneakers

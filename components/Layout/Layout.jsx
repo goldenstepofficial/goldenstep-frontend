@@ -17,15 +17,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {colorChange ? (
-        <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
-          <Navbar />
-        </div>
-      ) : (
-        <div className="fixed top-0 w-full z-[999]">
-          <Navbar />
-        </div>
-      )}
+      <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
+        <Navbar />
+      </div>
       <main>{children}</main>
       <Footer />
     </>

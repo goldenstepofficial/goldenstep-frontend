@@ -99,16 +99,16 @@ const Cart = () => {
           {cartData.map((data, index) => (
             <>
               <div
-                className="flex flex-row justify-between border-y mb-2 p-5"
+                className="flex flex-row justify-between border-y mb-2 py-5 px-3"
                 key={index}
               >
                 <img
                   src={data.product.image}
                   alt="product-image"
-                  className="h-28 w-32 rounded-lg"
+                  className="h-28 w-32 rounded-lg mr-2"
                 />
-                <div>
-                  <h1>{data.product.name}</h1>
+                <div className="">
+                  <h1 className="text-center">{data.product.name}</h1>
                   <div className="flex flex-row items-center md:mt-5 mt-2">
                     <button
                       // onClick={handleDecrease}
@@ -135,7 +135,7 @@ const Cart = () => {
                       className="h-5"
                     />
                   </button>
-                  <p>Rs. {data.sub_total_price}</p>
+                  <p className="text-[15px]">Rs. {data.sub_total_price}</p>
                 </div>
               </div>
             </>
