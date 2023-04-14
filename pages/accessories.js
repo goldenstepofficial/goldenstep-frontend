@@ -4,17 +4,7 @@ import Layout from '../components/Layout/Layout'
 import { useRouter } from "next/router";
 
 const Accessories = () => {
-    const [colorChange, setColorchange] = useState(false);
     const [accessories, setAccessories] = useState([]);
-
-    const changeNavbarColor = () => {
-        if (window.scrollY >= 80) {
-            setColorchange(true);
-        } else {
-            setColorchange(false);
-        }
-    };
-
     const router = useRouter()
 
     const getProducts = async () => {
@@ -33,14 +23,13 @@ const Accessories = () => {
     }
 
     useEffect(() => {
-        window.addEventListener("scroll", changeNavbarColor);
         getProducts()
     }, []);
 
 
     return (
         <Layout>
-            <div className='overflow-x-hidden md:mt-28 mt-[55px]'>
+            <div className='overflow-x-hidden md:mt-[107px] mt-[55px]'>
                 <div className="relative">
                     <div className="md:h-[90vh] h-[40vh]">
                         <Image
