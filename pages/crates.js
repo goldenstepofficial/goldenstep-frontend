@@ -68,7 +68,7 @@ const Crates = () => {
                                         </div>
                                         <div>
                                             <p className="md:text-[20px] uppercase mt-3 text-black">{item.name}</p>
-                                            <p className="border mx-auto w-fit px-2 mt-1 rounded-lg text-[#FFBC00] bg-black pt-1">
+                                            <p className="font-bold mx-auto w-fit px-2 mt-1 rounded-lg text-black pt-1">
                                                 Rs {item.price}
                                             </p>
                                         </div>
