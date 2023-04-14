@@ -40,22 +40,16 @@ const Kit = () => {
 
     return (
         <Layout>
-            <div className='overflow-x-hidden md:mt-32'>
-
-                <div className="relative">
-                    <div className="md:h-[80vh] h-[50vh]">
-                        <Image
-                            src={"/images/kit-poster.png"}
-                            alt="goldenstep-kit-poster"
-                            fill
-                            className="brightness-[65%]"
-                        />
-                    </div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center z-10">
-                        <h1 className="md:text-[100px] text-[32px] mt-10 md:mt-20 font-bold md:mb-4">
-                            Sneaker Kit
-                        </h1>
-                    </div>
+            <div className='overflow-x-hidden md:mt-[50px] mt-10'>
+                <div className="h-[50vh] md:h-full">
+                    <video
+                        autoPlay
+                        muted
+                        loop
+                        className="w-full h-full object-cover"
+                    >
+                        <source src={"/images/kit-banner.mp4"} type="video/mp4" />
+                    </video>
                 </div>
                 <div>
                     <div className="grid md:grid-cols-2 mx-auto md:w-[70%]">
@@ -75,7 +69,7 @@ const Kit = () => {
                                     <div>
                                         <p className="md:text-[20px] uppercase mt-3 text-black">{item.name}</p>
                                         <p className="border mx-auto w-fit px-2 mt-1 rounded-lg text-[#FFBC00] bg-black pt-1">
-                                            Rs{item.price}
+                                            Rs {item.price}
                                         </p>
                                     </div>
                                 </div>

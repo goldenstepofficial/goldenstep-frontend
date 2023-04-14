@@ -54,7 +54,7 @@ const Navbar = () => {
           <div className="grid grid-cols-3 w-full items-center">
             <button
               className="flex flex-row items-center justify-start ml-3 text-black"
-              onClick={() => router.push("/signup")}
+              onClick={() => router.push("/login")}
             >
               <span>Sign In</span>
               <Image
@@ -68,8 +68,8 @@ const Navbar = () => {
             <div className="flex justify-center">
               <Image
                 src={"/images/logo.jpg"}
-                width={100}
-                height={100}
+                width={70}
+                height={70}
                 onClick={() => router.push("/")}
                 className="cursor-pointer"
                 alt="goldenstep-logo"
@@ -95,7 +95,7 @@ const Navbar = () => {
               />
             </div>
           </div>
-          <div className="flex flex-row w-full justify-around mt-5 items-center text-black text-[18px] uppercase">
+          <div className="flex flex-row w-full justify-around mt-5 items-center text-black text-[18px] uppercase font-bold">
             <Link
               href={"/accessories"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
@@ -157,7 +157,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="pb-2">
+      <div className="pb-1">
         <div className="grid grid-cols-3 w-full items-center">
           <button className="flex flex-row items-center justify-start ml-3">
             <Image
@@ -174,7 +174,7 @@ const Navbar = () => {
               height={20}
               className="mx-2 hover:cursor-pointer"
               alt="user"
-              onClick={() => router.push("/signup")}
+              onClick={() => router.push("/login")}
             />
           </button>
           <div className="flex justify-center">
@@ -208,15 +208,17 @@ const Navbar = () => {
           </div>
         </div>
         {menuOpen && (
-          <div className="flex flex-col bg-[#3c3a3b] h-screen top-0 absolute w-full z-10 justify-around items-center text-[#ebebeb] text-[18px] uppercase">
-            <Image
-              src={"/images/close.png"}
-              width={30}
-              height={30}
-              className="mx-2 hover:cursor-pointer"
-              alt="close"
-              onClick={() => setMenuOpen(false)}
-            />
+          <div className="flex flex-col bg-white h-max pb-8 top-0 absolute w-[80%] z-10 gap-12 items-center text-black font-bold uppercase">
+            <div className="w-full justify-start">
+              <Image
+                src={"/images/close.png"}
+                width={50}
+                height={50}
+                className="mx-2 mt-2 hover:cursor-pointer"
+                alt="close"
+                onClick={() => setMenuOpen(false)}
+              />
+            </div>
             <Link
               href={"/accessories"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 const Cart = () => {
-  const { setShowCart } = useStateContext();
+  const { setShowCart, handleDecrease, handleIncrease } = useStateContext();
 
   const router = useRouter();
 
@@ -99,7 +99,7 @@ const Cart = () => {
           {cartData.map((data, index) => (
             <>
               <div
-                className="flex flex-row justify-between border-y mb-2 py-5 px-3"
+                className="flex flex-row justify-between border-y mb-2 py-5 px-2"
                 key={index}
               >
                 <img
@@ -107,24 +107,13 @@ const Cart = () => {
                   alt="product-image"
                   className="h-28 w-32 rounded-lg mr-2"
                 />
-                <div className="">
+                <div className="flex flex-col items-center mr-2">
                   <h1 className="text-center">{data.product.name}</h1>
                   <div className="flex flex-row items-center md:mt-5 mt-2">
-                    <button
-                      // onClick={handleDecrease}
-                      className="border rounded-l py-1 px-2"
-                    >
-                      <span className="font-bold">-</span>
-                    </button>
+                    Quantity:{" "}
                     <span className="border-t border-b px-4 py-1">
                       {data.quantity}
                     </span>
-                    <button
-                      // onClick={handleIncrease}
-                      className="border rounded-r py-1 px-2"
-                    >
-                      <span className="font-bold">+</span>
-                    </button>
                   </div>
                 </div>
                 <div className="flex flex-col justify-between items-end">
@@ -135,7 +124,7 @@ const Cart = () => {
                       className="h-5"
                     />
                   </button>
-                  <p className="text-[15px]">Rs. {data.sub_total_price}</p>
+                  <p className="text-[14px] mt-4">Rs. {data.sub_total_price}</p>
                 </div>
               </div>
             </>

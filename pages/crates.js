@@ -32,21 +32,24 @@ const Crates = () => {
     return (
         <>
             <Layout>
-                <div className='overflow-x-hidden md:mt-32 mt-0'>
-                    <div className="relative">
-                        <div className="md:h-[90vh] h-[50vh]">
-                            <Image
-                                src={"/images/accessories-poster.jpg"}
-                                alt="goldenstep-accessories-poster"
-                                fill
-                                className="brightness-[65%]"
-                            />
-                        </div>
-                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center z-10">
-                            <h1 className="md:text-[59px] text-[30px] mt-10 md:mt-20 font-bold md:mb-4">
-                                Sneaker Crates
-                            </h1>
-                        </div>
+                <div className='overflow-x-hidden md:mt-24 mt-0'>
+                    <div className="h-[50vh] md:h-[80vh]">
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            className="brightness-[80%] w-full h-full object-cover md:hidden block"
+                        >
+                            <source src={"/images/crates-banner3.mp4"} type="video/mp4" />
+                        </video>
+                        <video
+                            autoPlay
+                            muted
+                            loop
+                            className="brightness-[80%] w-full h-full object-cover md:block hidden"
+                        >
+                            <source src={"/images/crates-banner.mp4"} type="video/mp4" />
+                        </video>
                     </div>
                     <div>
                         <div className="grid md:grid-cols-2 grid-cols-1 mx-2 my-2">

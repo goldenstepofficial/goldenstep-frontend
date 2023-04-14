@@ -8,6 +8,9 @@ const KitComponent = ({ props }) => {
     cartGif,
     heartGif,
     quantity,
+    setColor,
+    setColor1,
+    setColor2,
     handleDecrease,
     handleIncrease,
     addItem,
@@ -128,7 +131,11 @@ const KitComponent = ({ props }) => {
                   className="block pl-3 pr-10 py-2 mt-1 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md md:w-[30%] w-[90%]"
                 >
                   {props.variations.color.map((color) => (
-                    <option key={color} value={color}>
+                    <option
+                      key={color}
+                      value={color}
+                      onClick={() => setColor(color)}
+                    >
                       {color}
                     </option>
                   ))}
@@ -150,9 +157,13 @@ const KitComponent = ({ props }) => {
                     name="color1"
                     className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   >
-                    {props.variations.color1.map((color) => (
-                      <option key={color} value={color}>
-                        {color}
+                    {props.variations.color1.map((color1) => (
+                      <option
+                        key={color1}
+                        value={color1}
+                        onClick={() => setColor1(color1)}
+                      >
+                        {color1}
                       </option>
                     ))}
                   </select>
@@ -167,9 +178,13 @@ const KitComponent = ({ props }) => {
                     name="color2"
                     className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   >
-                    {props.variations.color2.map((color) => (
-                      <option key={color} value={color}>
-                        {color}
+                    {props.variations.color2.map((color2) => (
+                      <option
+                        key={color2}
+                        value={color2}
+                        onClick={() => setColor2(color2)}
+                      >
+                        {color2}
                       </option>
                     ))}
                   </select>

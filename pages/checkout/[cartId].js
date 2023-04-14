@@ -50,7 +50,6 @@ const CheckoutComponent = ({ cart }) => {
         formdata.append("pincode", formValues.pincode);
         formdata.append("address_line_2", formValues.address_line_2);
 
-        // Make a fetch request to the API with the FormData object as the request body
         fetch("https://backend.goldenstep.in/order/", {
             method: 'POST',
             body: formdata,
@@ -291,8 +290,14 @@ const CheckoutComponent = ({ cart }) => {
                                     alt="product-image"
                                     className="h-28 w-32 rounded-lg"
                                 />
-                                <div>
-                                    <h1>{data.product.name}</h1>
+                                <div className="flex flex-col items-center mr-2">
+                                    <h1 className="text-center">{data.product.name}</h1>
+                                    <div className="flex flex-row items-center md:mt-5 mt-2">
+                                        Quantity:{" "}
+                                        <span className="border-t border-b px-4 py-1">
+                                            {data.quantity}
+                                        </span>
+                                    </div>
                                 </div>
                                 <div className="flex flex-col justify-between items-end">
                                     <button onClick={() => deleteItem(data.id)}>
@@ -307,7 +312,7 @@ const CheckoutComponent = ({ cart }) => {
                             </div>
                         </>
                     ))}
-                    <h1 className="text-[20px] mb-2 md:mx-0 mx-2">
+                    <h1 className="text-[20px] md:text-left text-center mb-2 md:mx-0 mx-2">
                         Subtotal: Rs. {cart.total_price}
                     </h1>
                 </div>

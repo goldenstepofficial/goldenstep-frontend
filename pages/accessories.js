@@ -40,20 +40,15 @@ const Accessories = () => {
 
     return (
         <Layout>
-            <div className='overflow-x-hidden md:mt-32 mt-0'>
+            <div className='overflow-x-hidden md:mt-28 mt-[55px]'>
                 <div className="relative">
-                    <div className="md:h-[90vh] h-[50vh]">
+                    <div className="md:h-[90vh] h-[40vh]">
                         <Image
-                            src={"/images/accessories-poster.jpg"}
+                            src={"/images/accessories-poster.png"}
                             alt="goldenstep-accessories-poster"
                             fill
-                            className="brightness-[65%]"
+                            className="brightness-[90%]"
                         />
-                    </div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center z-10">
-                        <h1 className="md:text-[59px] text-[30px] mt-10 md:mt-20 font-bold md:mb-4">
-                            Sneaker Accessories
-                        </h1>
                     </div>
                 </div>
                 <div>
@@ -74,7 +69,7 @@ const Accessories = () => {
                                     <div>
                                         <p className="md:text-[20px] uppercase mt-3 text-black">{item.name}</p>
                                         <p className="border mx-auto w-fit px-2 mt-1 rounded-lg text-[#FFBC00] bg-black pt-1">
-                                            Rs{item.price}
+                                            Rs {item.price}
                                         </p>
                                     </div>
                                 </div>

@@ -7,9 +7,9 @@ const Footer = () => {
     <>
       <footer className="mt-12 bg-black py-10">
         <div>
-          <div className="grid grid-cols-2 justify-items-center md:grid-cols-4">
+          <div className="grid grid-cols-1 ml-5 md:ml-0 md:justify-items-center md:grid-cols-4">
             <div>
-              <h3 className="text-lg font-medium text-gray-100">About</h3>
+              <h3 className="text-[20px] font-bold text-gray-100">About</h3>
               <ul className="mt-4 space-y-4">
                 <li>
                   <Link href="/about-us">
@@ -27,8 +27,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div>
-              <h3 className="text-lg font-medium text-gray-100">Products</h3>
+            <div className="md:mt-0 mt-5">
+              <h3 className="text-[20px] font-bold text-gray-100">Products</h3>
               <ul className="mt-4 space-y-4">
                 <li>
                   <Link href="/crates">
@@ -53,8 +53,8 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="md:mt-0 mt-10">
-              <h3 className="text-lg font-medium text-gray-100">
+            <div className="md:mt-0 mt-5">
+              <h3 className="text-[20px] font-bold text-gray-100">
                 Customer Service
               </h3>
               <ul className="mt-4 space-y-4">
@@ -81,11 +81,11 @@ const Footer = () => {
                 </li>
               </ul>
             </div>
-            <div className="md:mt-0 mt-10">
-              <h3 className="text-lg font-medium text-gray-100">Connect</h3>
+            <div className="md:mt-0 mt-5">
+              <h3 className="text-[20px] font-bold text-gray-100">Connect</h3>
               <ul className="mt-4 space-y-4">
                 <li>
-                  <Link href="/">
+                  <Link href="https://instagram.com/goldenstep_care">
                     <span className="text-base text-gray-300 hover:text-gray-100">
                       Instagram
                     </span>

@@ -9,6 +9,9 @@ export const StateContext = ({ children }) => {
     const [cartGif, setCartGif] = useState(false);
     const [heartGif, setHeartGif] = useState(false);
     const [quantity, setQuantity] = useState(1);
+    const [color, setColor] = useState('')
+    const [color1, setColor1] = useState('')
+    const [color2, setColor2] = useState('')
 
     const handleDecrease = () => {
         if (quantity > 1) {
@@ -47,6 +50,8 @@ export const StateContext = ({ children }) => {
         var formdata = new FormData();
         formdata.append("product_id", productId);
         formdata.append("quantity", quantity);
+        formdata.append("variations", JSON.stringify({ "color": color, "color1": color1, "color2": color2 }));
+
 
         var requestOptions = {
             method: "POST",
@@ -69,6 +74,7 @@ export const StateContext = ({ children }) => {
 
     useEffect(() => {
         setCartId(localStorage.getItem("cartId"));
+        console.log("COLORS",color, color1, color2)
     }, []);
 
     return (
@@ -78,10 +84,16 @@ export const StateContext = ({ children }) => {
                 cartGif,
                 heartGif,
                 quantity,
+                color,
+                color1,
+                color2,
                 setShowCart,
                 setCartGif,
                 setHeartGif,
                 setQuantity,
+                setColor,
+                setColor1,
+                setColor2,
 
                 handleDecrease,
                 handleIncrease,
