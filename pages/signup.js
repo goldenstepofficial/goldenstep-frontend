@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import { FaSpinner } from "react-icons/fa";
 import Layout from '../components/Layout/Layout'
+import MyHead from '../components/Head';
 
 const Signup = () => {
     const router = useRouter()
@@ -41,7 +42,7 @@ const Signup = () => {
     return (
         <>
             <Layout>
-
+                <MyHead title="Signup - Goldenstep" description="This is the homepage" />
                 <div className='md:my-40 mt-20 pt-2 rounded-lg text-center border mx-auto md:w-[40%] flex flex-col items-center text-black'>
                     <h1 className='text-[30px]'>SIGN UP</h1>
                     <form

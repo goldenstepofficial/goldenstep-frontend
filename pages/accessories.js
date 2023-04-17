@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Layout from '../components/Layout/Layout'
 import { useRouter } from "next/router";
+import MyHead from "../components/Head";
 
 const Accessories = () => {
     const [accessories, setAccessories] = useState([]);
@@ -29,6 +30,7 @@ const Accessories = () => {
 
     return (
         <Layout>
+            <MyHead title="Accessories - Goldenstep" description="This is the homepage" />
             <div className='overflow-x-hidden md:mt-[107px] mt-[55px]'>
                 <div className="relative">
                     <div className="md:h-[90vh] h-[40vh]">
@@ -41,7 +43,7 @@ const Accessories = () => {
                     </div>
                 </div>
                 <div>
-                    <div className="grid md:grid-cols-3 grid-cols-2">
+                    <div className="grid md:grid-cols-3 grid-cols-2 mb-10">
                         {accessories.map((item, index) => {
                             return (
                                 <div className="text-center md:mx-10 mx-2 pb-3 md:h-[300px] pt-2 border mt-10 shadow-xl cursor-pointer hover:scale-[102%] transition ease-in-out" key={index}

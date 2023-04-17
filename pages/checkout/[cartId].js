@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import CheckoutPage from '../../components/checkout-page';
+import MyHead from '../../components/Head';
 
 const CheckoutComponent = ({ cart }) => {
     console.log('Cart:', cart);
@@ -68,6 +69,7 @@ const CheckoutComponent = ({ cart }) => {
 
     return (
         <>
+            <MyHead title="Checkout - Goldenstep" description="This is the homepage" />
             <div
                 className='w-[20%] mx-auto cursor-pointer md:hidden block mb-3'
                 onClick={() => router.push("/")}
@@ -106,7 +108,7 @@ const CheckoutComponent = ({ cart }) => {
                                             required
                                             value={formValues.email}
                                             onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                         />
                                     </div>
                                 </div>
@@ -125,7 +127,7 @@ const CheckoutComponent = ({ cart }) => {
                                         required
                                         value={formValues.country}
                                         onChange={handleChange}
-                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2px-2 border"
                                     />
                                 </div>
                             </div>
@@ -142,7 +144,7 @@ const CheckoutComponent = ({ cart }) => {
                                             required
                                             value={formValues.first_name}
                                             onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                         />
                                     </div>
                                 </div>
@@ -158,7 +160,7 @@ const CheckoutComponent = ({ cart }) => {
                                             required
                                             value={formValues.last_name}
                                             onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                         />
                                     </div>
                                 </div>
@@ -175,7 +177,7 @@ const CheckoutComponent = ({ cart }) => {
                                         required
                                         value={formValues.address_line_1}
                                         onChange={handleChange}
-                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                     />
                                 </div>
                             </div>
@@ -190,7 +192,7 @@ const CheckoutComponent = ({ cart }) => {
                                         id="address_line_2"
                                         value={formValues.address_line_2}
                                         onChange={handleChange}
-                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                     />
                                 </div>
                             </div>
@@ -207,7 +209,7 @@ const CheckoutComponent = ({ cart }) => {
                                             required
                                             value={formValues.city}
                                             onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                         />
                                     </div>
                                 </div>
@@ -223,7 +225,7 @@ const CheckoutComponent = ({ cart }) => {
                                             required
                                             value={formValues.state}
                                             onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                         />
                                     </div>
                                 </div>
@@ -239,7 +241,7 @@ const CheckoutComponent = ({ cart }) => {
                                             required
                                             value={formValues.pincode}
                                             onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                         />
                                     </div>
                                 </div>
@@ -256,7 +258,7 @@ const CheckoutComponent = ({ cart }) => {
                                         required
                                         value={formValues.phone_number}
                                         onChange={handleChange}
-                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2"
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                     />
                                 </div>
                             </div>
@@ -312,7 +314,12 @@ const CheckoutComponent = ({ cart }) => {
                             </div>
                         </>
                     ))}
-                    <h1 className="text-[20px] md:text-left text-center mb-2 md:mx-0 mx-2">
+                    <div className="fixed bottom-0 bg-gray-200 md:w-[40%] w-full py-5 text-center md:block hidden">
+                        <h1 className="text-[20px] mb-2">
+                            Subtotal: Rs. {cart.total_price}
+                        </h1>
+                    </div>
+                    <h1 className="text-[20px] md:text-right text-center mb-2 md:mx-0 mx-2 px-3 md:hidden block">
                         Subtotal: Rs. {cart.total_price}
                     </h1>
                 </div>

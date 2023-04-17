@@ -61,9 +61,12 @@ const KitComponent = ({ props }) => {
           <h1 className="md:text-[40px] text-[34px] uppercase text-center">
             {props.name}
           </h1>
-          <span className="text-[25px] text-center ml-5 md:mt-5 mt-1">
-            Rs {props.price}/-
-          </span>
+          <div className="flex flex-row items-center text-[17px] text-center w-full justify-center md:mt-5 mt-1">
+            <span className="line-through pr-2">
+              Rs {props.details.oldPrice}
+            </span>
+            <span className="text-[20px] text-center">Rs {props.price}/-</span>
+          </div>
 
           <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
             <button
@@ -105,16 +108,14 @@ const KitComponent = ({ props }) => {
             <div className="flex flex-row items-center">
               <button
                 onClick={handleDecrease}
-                className="border rounded-l py-2 px-4 bg-[#3a3c3b]"
+                className="border rounded-l py-2 px-4"
               >
                 <span className="font-bold">-</span>
               </button>
-              <span className="border-t border-b px-8 py-2 bg-[#3a3c3b]">
-                {quantity}
-              </span>
+              <span className="border-t border-b px-8 py-2">{quantity}</span>
               <button
                 onClick={handleIncrease}
-                className="border rounded-r py-2 px-4 bg-[#3a3c3b]"
+                className="border rounded-r py-2 px-4"
               >
                 <span className="font-bold">+</span>
               </button>
@@ -128,7 +129,7 @@ const KitComponent = ({ props }) => {
                 <select
                   id="color1"
                   name="color1"
-                  className="block pl-3 pr-10 py-2 mt-1 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md md:w-[30%] w-[90%]"
+                  className="block border pl-3 pr-10 py-2 mt-1 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md md:w-[30%] w-[90%]"
                 >
                   {props.variations.color.map((color) => (
                     <option
@@ -155,7 +156,7 @@ const KitComponent = ({ props }) => {
                   <select
                     id="color1"
                     name="color1"
-                    className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    className="block border w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   >
                     {props.variations.color1.map((color1) => (
                       <option
@@ -176,7 +177,7 @@ const KitComponent = ({ props }) => {
                   <select
                     id="color2"
                     name="color2"
-                    className="block w-full pl-3 pr-10 py-2 text-base border-gray-300 bg-[#3a3c3b] focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+                    className="block border w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
                   >
                     {props.variations.color2.map((color2) => (
                       <option

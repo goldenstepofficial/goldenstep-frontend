@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Layout from '../components/Layout/Layout'
+import MyHead from "../components/Head";
 
 const Crates = () => {
     const [crates, setCrates] = useState([])
@@ -32,6 +33,7 @@ const Crates = () => {
     return (
         <>
             <Layout>
+                <MyHead title="Crates - Goldenstep" description="This is the homepage" />
                 <div className='overflow-x-hidden md:mt-24 mt-0'>
                     <div className="h-[50vh] md:h-[80vh]">
                         <video
@@ -39,17 +41,21 @@ const Crates = () => {
                             muted
                             loop
                             className="brightness-[80%] w-full h-full object-cover md:hidden block"
-                        >
-                            <source src={"/images/crates-banner3.mp4"} type="video/mp4" />
-                        </video>
+                            src={"/images/crates-banner3.mp4"}
+                            type="video/mp4"
+                        />
+                        {/* <source src={"/images/crates-banner3.mp4"} type="video/mp4" /> */}
+                        {/* </video> */}
                         <video
                             autoPlay
                             muted
                             loop
                             className="brightness-[80%] w-full h-full object-cover md:block hidden"
-                        >
-                            <source src={"/images/crates-banner.mp4"} type="video/mp4" />
-                        </video>
+                            src={"/images/crates-banner.mp4"}
+                            type="video/mp4"
+                        />
+                        {/* <source src={"/images/crates-banner.mp4"} type="video/mp4" /> */}
+                        {/* </video> */}
                     </div>
                     <div>
                         <div className="grid grid-cols-2 mx-2 my-2">

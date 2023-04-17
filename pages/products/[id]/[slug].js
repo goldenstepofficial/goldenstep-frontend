@@ -4,12 +4,14 @@ import KitComponent from '../../../components/categories/KitComponent';
 import AccessoriesComponent from '../../../components/categories/AccessoriesComponent';
 import CratesComponents from '../../../components/categories/CratesComponents';
 import Layout from '../../../components/Layout/Layout';
+import MyHead from '../../../components/Head';
 
 const Product = ({ products }) => {
 
     return (
         <>
             <Layout>
+                <MyHead title={`${products.name} - Goldenstep`} description="This is the homepage" />
                 {products.category == "Accessories" && (
                     <AccessoriesComponent props={products} />
                 )}

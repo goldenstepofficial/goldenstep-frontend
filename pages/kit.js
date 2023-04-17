@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Layout from '../components/Layout/Layout'
 import { useRouter } from "next/router";
+import MyHead from "../components/Head";
 
 const Kit = () => {
     const [colorChange, setColorchange] = useState(false);
@@ -40,6 +41,7 @@ const Kit = () => {
 
     return (
         <Layout>
+            <MyHead title="Kit - Goldenstep" description="This is the homepage" />
             <div className='overflow-x-hidden md:mt-[50px] mt-10'>
                 <div className="h-[50vh] md:h-full">
                     <video
@@ -47,9 +49,11 @@ const Kit = () => {
                         muted
                         loop
                         className="w-full h-full object-cover"
-                    >
-                        <source src={"/images/kit-banner.mp4"} type="video/mp4" />
-                    </video>
+                        src={"/images/kit-banner.mp4"}
+                        type="video/mp4"
+                    />
+                    {/* <source src={"/images/kit-banner.mp4"} type="video/mp4" /> */}
+                    {/* </video> */}
                 </div>
                 <div>
                     <div className="grid grid-cols-2 md:mx-auto md:w-[70%] pb-5">

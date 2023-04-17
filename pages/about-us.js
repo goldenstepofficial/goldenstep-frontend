@@ -1,10 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
+import MyHead from '../components/Head'
 
 const AboutUs = () => {
     return (
         <>
             <Layout>
+                <MyHead title="About Us - Goldenstep" description="This is the homepage" />
                 <div className="max-w-4xl md:mt-32 mt-10 mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center">About Golden Step</h1>
                     <p className="mt-6 text-gray-500">Golden Step is a premium sneaker care company that offers high-quality sneaker cleaning products and premium shoe crates. Our shoe crates are made of high-quality wood and designed to not only protect your sneakers but also add a touch of luxury to your sneaker collection.</p>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../navbar";
 import Footer from "../footer";
+import MyHead from "../Head";
 
 const Layout = ({ children }) => {
   const [colorChange, setColorchange] = useState(false);
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <MyHead />
       <div className="fixed top-0 w-full bg-white shadow-xl z-[999]">
         <Navbar />
       </div>

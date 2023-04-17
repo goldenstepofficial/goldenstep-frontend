@@ -1,8 +1,10 @@
+import MyHead from '../components/Head';
 import Layout from '../components/Layout/Layout';
 
 const Contact = () => {
     return (
         <Layout>
+            <MyHead title="Contact Us - Goldenstep" description="This is the homepage" />
             <div className="flex flex-col items-center justify-center min-h-screen py-12 bg-gray-50 sm:px-6 lg:px-8">
                 <div className="w-full space-y-8">
                     <div>

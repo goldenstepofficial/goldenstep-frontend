@@ -1,10 +1,12 @@
 import React from 'react';
 import Layout from '../components/Layout/Layout';
+import MyHead from '../components/Head';
 
 const PrivacyPolicy = () => {
     return (
         <>
             <Layout>
+                <MyHead title="Privacy Policy - Goldenstep" description="This is the homepage" />
                 <div className="max-w-4xl md:mt-32 mt-10 mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center">Privacy Policy</h1>
                     <p className="mt-6 text-gray-500">

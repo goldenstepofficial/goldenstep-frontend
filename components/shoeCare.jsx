@@ -31,7 +31,7 @@ const ShoeCare = ({ props }) => {
                   </div>
                   <div>
                     <p className="text-[16px]">{item.name}</p>
-                    <p className="mx-auto w-fit px-2 mt-2 rounded-lg text-[#FAB038] bg-[#231F20] pt-1">
+                    <p className="font-bold mx-auto w-fit px-2 mt-1 rounded-lg text-black md:text-[16px] text-[14px] pt-1">
                       Rs {item.price}
                     </p>
                   </div>

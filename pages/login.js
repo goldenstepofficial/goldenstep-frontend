@@ -2,6 +2,7 @@ import Layout from '../components/Layout/Layout'
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/router';
 import { FaSpinner } from "react-icons/fa";
+import MyHead from '../components/Head';
 
 const Login = () => {
 
@@ -14,6 +15,7 @@ const Login = () => {
     return (
         <>
             <Layout>
+                <MyHead title="Login - Goldenstep" description="This is the homepage" />
                 <div className='md:my-40 my-20 pt-2 rounded-lg text-center border mx-auto md:w-[40%] flex flex-col items-center text-black'>
                     <h1 className='text-[30px]'>LogIn</h1>
                     <form

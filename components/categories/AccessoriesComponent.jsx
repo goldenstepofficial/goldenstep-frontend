@@ -59,7 +59,7 @@ const AccessoriesComponent = ({ props }) => {
             {props.name}
           </h1>
           <div className="flex flex-row items-center text-[17px] text-center w-full justify-center md:mt-5 mt-1">
-            <span class="line-through pr-2">Rs {props.details.oldPrice}</span>
+            <span className="line-through pr-2">Rs {props.details.oldPrice}</span>
             <span className="text-[20px] text-center">Rs {props.price}/-</span>
           </div>
 

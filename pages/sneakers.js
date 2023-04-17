@@ -1,9 +1,11 @@
 import Link from "next/link"
 import Layout from "../components/Layout/Layout"
+import MyHead from "../components/Head"
 
 const Sneakers = () => {
     return (
         <Layout>
+            <MyHead title="Sneakers - Goldenstep" description="This is the homepage" />
             <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 mt-10">
                 <h1 className="text-4xl font-bold mb-4">Coming Soon</h1>
                 <p className="text-gray-500 mb-8">Our new sneaker collection is launching soon. Be the first to know!</p>

@@ -1,10 +1,12 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout';
+import MyHead from '../../components/Head';
 
 const Cart = ({ cart }) => {
     return (
         <>
             <Layout>
+                <MyHead title="Cart - Goldenstep" description="This is the homepage" />
                 <div className='w-full mt-40'>
                     {cart.items.map((data, index) => (
                         <>

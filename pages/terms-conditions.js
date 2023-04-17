@@ -1,10 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
+import MyHead from '../components/Head'
 
 const TermsConditions = () => {
     return (
         <>
             <Layout>
+                <MyHead title="Terms and Conditions - Goldenstep" description="This is the homepage" />
                 <div className="max-w-4xl md:mt-32 mt-10 mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center">Terms and Conditions for Golden Step (India)</h1>
                     <p className="mt-6 text-gray-500">Welcome to Golden Step! These terms and conditions (&quot;Terms&quot;) govern your use of our website, www.goldenstep.in (&quot;Website&quot;), and any services, features, or content provided by Golden Step. By using our Website, you agree to these Terms. If you do not agree to these Terms, please do not use our Website.</p>

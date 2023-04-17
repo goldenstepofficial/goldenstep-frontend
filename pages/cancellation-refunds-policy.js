@@ -1,10 +1,12 @@
 import React from 'react'
 import Layout from '../components/Layout/Layout'
+import MyHead from '../components/Head'
 
 const CancellationsRefundsPolicy = () => {
     return (
         <>
             <Layout>
+                <MyHead title="Cancellation Refunds Policy - Goldenstep" description="This is the homepage" />
                 <div className="max-w-4xl md:mt-32 mt-10 mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <h1 className="text-3xl font-extrabold text-gray-900 text-center">Cancellation and Refund Policy for Golden Step</h1>
                     <p className="mt-6 text-gray-500">We at Golden Step value your satisfaction with our products and services. We understand that sometimes situations arise where you may need to cancel or return your order. To ensure a seamless experience for our customers, we have outlined our cancellation and refund policy below:</p>
