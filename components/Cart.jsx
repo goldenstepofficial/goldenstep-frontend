@@ -2,6 +2,7 @@ import React from "react";
 import { useStateContext } from "../context/StateContext";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Cart = () => {
   const { setShowCart, handleDecrease, handleIncrease } = useStateContext();
@@ -108,7 +109,12 @@ const Cart = () => {
                   className="h-28 w-32 rounded-lg mr-2"
                 />
                 <div className="flex flex-col items-center mr-2">
-                  <h1 className="text-center">{data.product.name}</h1>
+                  <Link
+                    href={`/products/${data.product.id}/${data.product.slug}`}
+                    className="text-center cursor-pointer"
+                  >
+                    {data.product.name}
+                  </Link>
                   <div className="flex flex-row items-center md:mt-5 mt-2">
                     Quantity:{" "}
                     <span className="border-t border-b px-4 py-1">

@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { useStateContext } from "../../context/StateContext";
+import MyHead from "../Head";
+import AlsoLike from "../AlsoLike";
 
 const CratesComponents = ({ props }) => {
   const {
@@ -25,7 +27,10 @@ const CratesComponents = ({ props }) => {
 
   return (
     <>
-      {console.log(props)}
+      <MyHead
+        title={`${props.name} - Goldenstep`}
+        description="This is the homepage"
+      />
       <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
           <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
@@ -100,15 +105,36 @@ const CratesComponents = ({ props }) => {
           <div className="w-[80%] mx-auto mt-3 p-2 border rounded text-center bg-[#231F20] text-[#ebebeb] shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038] hover:border-none">
             Buy Now
           </div>
+
+          <div className="flex flex-col ml-5 md:mt-5 mt-2">
+            <h1>Quantity:</h1>
+            <div className="flex flex-row items-center">
+              <button
+                onClick={handleDecrease}
+                className="border rounded-l py-2 px-4"
+              >
+                <span className="font-bold">-</span>
+              </button>
+              <span className="border-t border-b px-8 py-2">{quantity}</span>
+              <button
+                onClick={handleIncrease}
+                className="border rounded-r py-2 px-4"
+              >
+                <span className="font-bold">+</span>
+              </button>
+            </div>
+          </div>
+
           <div className="mt-5 mx-8 md:mx-0 text-center md:text-left">
             <h1 className="text-[24px] font-extrabold">About the Product:</h1>
             <p className="mt-1 text-[14px]">{props.description}</p>
           </div>
         </div>
       </div>
-      {/* <div>
-                <h1 className='text-center text-[30px] mt-10'>You May Also Like</h1>
-            </div> */}
+      <div>
+        <h1 className="text-center text-[30px] mt-10">You May Also Like</h1>
+        <AlsoLike id={props.id} />
+      </div>
     </>
   );
 };

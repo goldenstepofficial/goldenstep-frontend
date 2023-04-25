@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { useState } from "react";
 import { useStateContext } from "../../context/StateContext";
+import MyHead from "../Head";
+import AlsoLike from "../AlsoLike";
 
 const KitComponent = ({ props }) => {
   const {
@@ -28,6 +30,10 @@ const KitComponent = ({ props }) => {
 
   return (
     <>
+      <MyHead
+        title={`${props.name} - Goldenstep`}
+        description="This is the homepage"
+      />
       <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
           <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
@@ -212,9 +218,10 @@ const KitComponent = ({ props }) => {
           </div>
         </div>
       </div>
-      {/* <div>
-                <h1 className='text-center text-[30px] mt-10'>You May Also Like</h1>
-            </div> */}
+      <div>
+        <h1 className="text-center text-[30px] mt-10">You May Also Like</h1>
+        <AlsoLike id={props.id} />
+      </div>
     </>
   );
 };
