@@ -50,9 +50,10 @@ const Accessories = () => {
                                     onClick={() => router.push(`products/${item.id}/${item.slug}`)}
                                 >
                                     <div className="h-[200px] flex items-center justify-center">
-                                        <img
+                                        <Image
                                             src={item.thumbnail}
-                                            width="250px"
+                                            width={250}
+                                            height={250}
                                             alt={item.name}
                                             className="max-h-full"
                                         />

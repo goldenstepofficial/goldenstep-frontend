@@ -37,11 +37,12 @@ const AccessoriesComponent = ({ props }) => {
       <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
           <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
-            <img
+            <Image
               src={selectedImage}
-              width="400px"
+              width={400}
+              height={200}
               className="rounded max-h-full"
-              alt="product-image"
+              alt={props.name}
             />
           </div>
 
@@ -52,11 +53,11 @@ const AccessoriesComponent = ({ props }) => {
                 className="cursor-pointer"
                 onClick={() => handleProductViewClick(image)}
               >
-                <img
+                <Image
                   src={image}
                   width={100}
                   height={100}
-                  alt="product-image"
+                  alt={props.name}
                   className="rounded"
                 />
               </div>

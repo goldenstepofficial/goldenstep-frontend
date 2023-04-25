@@ -10,6 +10,7 @@ const Hero = () => {
           fill
           alt="hero-banner"
           className=" w-full h-full object-cover"
+          priority
         />
       </div>
     </>
