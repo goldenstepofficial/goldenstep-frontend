@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Arrivals = ({ props }) => {
   const router = useRouter();
@@ -19,11 +20,11 @@ const Arrivals = ({ props }) => {
                 key={index}
               >
                 <div className="h-[180px]">
-                  <img
+                  <Image
                     src={item.thumbnail}
                     width={250}
                     height={150}
-                    alt="sneaker-products"
+                    alt={item.name}
                   />
                 </div>
                 <div>

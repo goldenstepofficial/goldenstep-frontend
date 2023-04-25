@@ -74,7 +74,7 @@ export const StateContext = ({ children }) => {
 
     useEffect(() => {
         setCartId(localStorage.getItem("cartId"));
-        console.log("COLORS",color, color1, color2)
+        console.log("COLORS", color, color1, color2)
     }, []);
 
     return (

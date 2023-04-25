@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Layout from "../components/Layout/Layout"
 import MyHead from "../components/Head"
+import Image from "next/image"
 
 const Sneakers = () => {
     return (
@@ -13,13 +14,31 @@ const Sneakers = () => {
                 <p className="text-gray-500">Stay tuned for updates on our social media channels:</p>
                 <div className="flex flex-row justify-between mt-2">
                     <Link href={'https://www.instagram.com/goldenstep_care/'}>
-                        <img src="/images/instagram.png" alt="Goldenstep Instagram" className="w-8 h-8 mx-3" />
+                        <Image
+                            src="/images/instagram.png"
+                            alt="Goldenstep Instagram"
+                            className="w-8 h-8 mx-3"
+                            width={30}
+                            height={30}
+                        />
                     </Link>
                     <Link href={'/'}>
-                        <img src="/images/facebook.png" alt="Goldenstep Instagram" className="w-8 h-8 mx-3" />
+                        <Image
+                            src="/images/facebook.png"
+                            alt="Goldenstep Instagram"
+                            className="w-8 h-8 mx-3"
+                            width={30}
+                            height={30}
+                        />
                     </Link>
                     <Link href={'/'}>
-                        <img src="/images/youtube.png" alt="Goldenstep Instagram" className="w-8 h-8 mx-3" />
+                        <Image
+                            src="/images/youtube.png"
+                            alt="Goldenstep Instagram"
+                            className="w-8 h-8 mx-3"
+                            width={30}
+                            height={30}
+                        />
                     </Link>
                 </div>
 

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import CheckoutPage from '../../components/checkout-page';
 import MyHead from '../../components/Head';
+import Image from 'next/image';
 
 const CheckoutComponent = ({ cart }) => {
     console.log('Cart:', cart);
@@ -74,10 +75,12 @@ const CheckoutComponent = ({ cart }) => {
                 className='w-[20%] mx-auto cursor-pointer md:hidden block mb-3'
                 onClick={() => router.push("/")}
             >
-                <img
+                <Image
                     src="/images/logo.jpg"
                     alt="goldenstep-logo"
                     className='h-16 justify-center'
+                    width={60}
+                    height={60}
                 />
             </div>
             <div className='flex md:flex-row flex-col-reverse w-full justify-between md:pl-5'>
@@ -86,10 +89,12 @@ const CheckoutComponent = ({ cart }) => {
                         className='w-[20%] mx-auto cursor-pointer md:block hidden mb-5'
                         onClick={() => router.push("/")}
                     >
-                        <img
+                        <Image
                             src="/images/logo.jpg"
                             alt="goldenstep-logo"
                             className='h-24 justify-center'
+                            width={90}
+                            height={90}
                         />
                     </div>
                     {!isPayment &&
@@ -287,10 +292,12 @@ const CheckoutComponent = ({ cart }) => {
                                 className="flex flex-row justify-between border-y mb-2 py-5 px-3"
                                 key={index}
                             >
-                                <img
+                                <Image
                                     src={data.product.image}
-                                    alt="product-image"
+                                    alt={data.product.name}
                                     className="h-28 w-32 rounded-lg"
+                                    width={120}
+                                    height={105}
                                 />
                                 <div className="flex flex-col items-center mr-2">
                                     <h1 className="text-center">{data.product.name}</h1>
@@ -303,10 +310,12 @@ const CheckoutComponent = ({ cart }) => {
                                 </div>
                                 <div className="flex flex-col justify-between items-end">
                                     <button onClick={() => deleteItem(data.id)}>
-                                        <img
+                                        <Image
                                             src="/images/delete.png"
                                             alt="delete-item"
                                             className="h-5"
+                                            height={18}
+                                            width={18}
                                         />
                                     </button>
                                     <p>Rs. {data.sub_total_price}</p>

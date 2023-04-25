@@ -43,11 +43,11 @@ const AlsoLike = ({ id }) => {
                   key={index}
                 >
                   <div className="h-[180px]">
-                    <img
+                    <Image
                       src={item.thumbnail}
                       width={250}
                       height={150}
-                      alt="sneaker-products"
+                      alt={item.name}
                     />
                   </div>
                   <div>

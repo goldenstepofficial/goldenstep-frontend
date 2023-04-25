@@ -1,6 +1,8 @@
 import React from 'react'
 import Layout from '../../components/Layout/Layout';
 import MyHead from '../../components/Head';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Cart = ({ cart }) => {
     return (
@@ -14,37 +16,36 @@ const Cart = ({ cart }) => {
                                 className="flex flex-row justify-between border-y mb-2 p-5"
                                 key={index}
                             >
-                                <img
+                                <Image
                                     src={data.product.image}
                                     alt="product-image"
                                     className="h-28 w-32 rounded-lg"
+                                    width={120}
+                                    height={105}
                                 />
                                 <div>
-                                    <h1>{data.product.name}</h1>
+                                    <Link
+                                        href={`/products/${data.product.id}/${data.product.slug}`}
+                                        className="text-center cursor-pointer"
+                                    >
+                                        {data.product.name}
+                                    </Link>
                                     <div className="flex flex-row items-center md:mt-5 mt-2">
-                                        <button
-                                            // onClick={handleDecrease}
-                                            className="border rounded-l py-1 px-2"
-                                        >
-                                            <span className="font-bold">-</span>
-                                        </button>
-                                        <span className="border-t border-b px-4 py-1">
+                                        <h1>Quantity: </h1>
+                                        {" "}
+                                        <span className="border-y px-4 py-1">
                                             {data.quantity}
                                         </span>
-                                        <button
-                                            // onClick={handleIncrease}
-                                            className="border rounded-r py-1 px-2"
-                                        >
-                                            <span className="font-bold">+</span>
-                                        </button>
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-between items-end">
                                     <button onClick={() => deleteItem(data.id)}>
-                                        <img
+                                        <Image
                                             src="/images/delete.png"
                                             alt="delete-item"
                                             className="h-5"
+                                            width={18}
+                                            height={18}
                                         />
                                     </button>
                                     <p>Rs. {data.sub_total_price}</p>
@@ -52,7 +53,7 @@ const Cart = ({ cart }) => {
                             </div>
                         </>
                     ))}
-                    <h1 className="text-[20px] mb-2">
+                    <h1 className="text-[20px] mb-2 ml-4">
                         Subtotal: Rs. {cart.total_price}
                     </h1>
                 </div>
