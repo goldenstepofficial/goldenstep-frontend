@@ -114,12 +114,12 @@ const Navbar = () => {
             >
               Kit
             </Link>
-            <Link
+            {/* <Link
               href={"/sneakers"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Sneakers
-            </Link>
+            </Link> */}
             <div className="flex flex-row items-center relative" ref={inputRef}>
               <Image
                 src={"/images/search.png"}
@@ -237,12 +237,12 @@ const Navbar = () => {
             >
               Kit
             </Link>
-            <Link
+            {/* <Link
               href={"/sneakers"}
               className="hover:cursor-pointer hover:underline hover:underline-offset-4"
             >
               Sneakers
-            </Link>
+            </Link> */}
             <div className="flex flex-row items-center relative" ref={inputRef}>
               <Image
                 src={"/images/search.png"}

@@ -79,6 +79,13 @@ const Footer = () => {
                     </span>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/shipping-delivery">
+                    <span className="text-base text-gray-300 hover:text-gray-100">
+                      Shipping and Delivery Policy
+                    </span>
+                  </Link>
+                </li>
               </ul>
             </div>
             <div className="md:mt-0 mt-5">
