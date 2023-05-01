@@ -84,6 +84,7 @@ const Contact = () => {
                         <div className='w-[70%] flex flex-col md:text-[24px]'>
                             <a href="mailto:hello@goldenstep.in">Mail us at: hello@goldenstep.in</a>
                             <a href="tel:+918700123285">Call us at: 8700123285</a>
+                            <address>C-5/71 Sector 11 Rohini Delhi 110085</address>
                         </div>
                     </div>
                 </div>
