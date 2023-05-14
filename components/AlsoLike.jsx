@@ -1,9 +1,12 @@
 import React from "react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 
 const AlsoLike = ({ id }) => {
   const [products, setProducts] = useState();
+
+  const router = useRouter();
 
   const getProducts = () => {
     var requestOptions = {
@@ -37,9 +40,10 @@ const AlsoLike = ({ id }) => {
               return (
                 <div
                   className="inline-block w-[250px] h-[250px] mr-10 shadow-2xl cursor-pointer hover:scale-105 transition ease-in-out"
-                  onClick={() =>
-                    router.push(`/products/${item.id}/${item.slug}`)
-                  }
+                  onClick={() => {
+                    console.log("CLICKED"),
+                      router.push(`/products/${item.id}/${item.slug}`);
+                  }}
                   key={index}
                 >
                   <div className="h-[180px]">
