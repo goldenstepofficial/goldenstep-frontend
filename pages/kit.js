@@ -48,12 +48,11 @@ const Kit = () => {
                         autoPlay
                         muted
                         loop
+                        playsinline
                         className="w-full h-full object-cover"
                         src={"/images/kit-banner.mp4"}
                         type="video/mp4"
-                    />
-                    {/* <source src={"/images/kit-banner.mp4"} type="video/mp4" /> */}
-                    {/* </video> */}
+                    ></video>
                 </div>
                 <div>
                     <div className="grid grid-cols-2 md:mx-auto md:w-[70%] pb-5">
