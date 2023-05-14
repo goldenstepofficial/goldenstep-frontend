@@ -32,9 +32,14 @@ const ShoeCare = ({ props }) => {
                   </div>
                   <div>
                     <p className="text-[16px]">{item.name}</p>
-                    <p className="font-bold mx-auto w-fit px-2 mt-1 rounded-lg text-black md:text-[16px] text-[14px] pt-1">
-                      Rs {item.price}
-                    </p>
+                    <div className="flex flex-row items-center text-center justify-center mt-2">
+                      <span className="line-through pr-2 text-[14px]">
+                        Rs {item.details.oldPrice}
+                      </span>
+                      <p className="font-bold rounded-lg text-black text-[16px]">
+                        Rs {item.price}
+                      </p>
+                    </div>
                   </div>
                 </div>
               );

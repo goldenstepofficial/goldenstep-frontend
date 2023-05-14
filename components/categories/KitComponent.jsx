@@ -28,6 +28,8 @@ const KitComponent = ({ props }) => {
     addItem(props.id);
   };
 
+  const formattedDescription = props.description.replace(/\n/g, "<br>");
+
   return (
     <>
       <MyHead
@@ -215,7 +217,10 @@ const KitComponent = ({ props }) => {
           </div>
           <div className="mt-5 mx-8 md:mx-0 text-center md:text-left">
             <h1 className="text-[24px] font-extrabold">About the Product:</h1>
-            <p className="mt-1 text-[14px]">{props.description}</p>
+            <p
+              className="mt-1 text-[14px]"
+              dangerouslySetInnerHTML={{ __html: formattedDescription }}
+            />
           </div>
         </div>
       </div>
