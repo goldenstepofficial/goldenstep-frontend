@@ -40,7 +40,7 @@ const Crates = () => {
                             autoPlay
                             muted
                             loop
-                            playsinline
+                            playsInline
                             className="brightness-[80%] w-full h-full object-cover md:hidden block"
                             src={"/images/crates-banner3.mp4"}
                             type="video/mp4"
@@ -49,7 +49,7 @@ const Crates = () => {
                             autoPlay
                             muted
                             loop
-                            playsinline
+                            playsInline
                             className="brightness-[80%] w-full h-full object-cover md:block hidden"
                             src={"/images/crates-banner.mp4"}
                             type="video/mp4"

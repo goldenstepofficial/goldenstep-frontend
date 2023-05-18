@@ -48,7 +48,7 @@ const Kit = () => {
                         autoPlay
                         muted
                         loop
-                        playsinline
+                        playsInline
                         className="w-full h-full object-cover"
                         src={"/images/kit-banner.mp4"}
                         type="video/mp4"
