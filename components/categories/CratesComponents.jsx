@@ -27,6 +27,20 @@ const CratesComponents = ({ props }) => {
 
   const formattedDescription = props.description.replace(/\n/g, "<br>");
 
+  const handlePrevClick = () => {
+    const currentIndex = props.images.indexOf(selectedImage);
+    const prevIndex =
+      currentIndex === 0 ? props.images.length - 1 : currentIndex - 1;
+    setSelectedImage(props.images[prevIndex]);
+  };
+
+  const handleNextClick = () => {
+    const currentIndex = props.images.indexOf(selectedImage);
+    const nextIndex =
+      currentIndex === props.images.length - 1 ? 0 : currentIndex + 1;
+    setSelectedImage(props.images[nextIndex]);
+  };
+
   return (
     <>
       <MyHead
@@ -35,7 +49,7 @@ const CratesComponents = ({ props }) => {
       />
       <div className="md:mt-40 mt-10 md:mx-5 md:grid md:grid-cols-2 text-black md:h-screen">
         <div>
-          <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center">
+          <div className="h-[280px] w-[70%] mx-auto flex items-center justify-center relative">
             <Image
               src={selectedImage}
               width={400}
@@ -43,6 +57,44 @@ const CratesComponents = ({ props }) => {
               className="rounded max-h-full"
               alt={props.name}
             />
+            <button
+              className="absolute top-1/2 -left-10 transform -translate-y-1/2 text-gray-500 hover:text-gray-800 focus:outline-none"
+              onClick={handlePrevClick}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+            <button
+              className="absolute top-1/2 -right-10 transform -translate-y-1/2 text-gray-500 hover:text-gray-800 focus:outline-none"
+              onClick={handleNextClick}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-12 w-12"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
           </div>
 
           <div className="mt-2 mx-5 grid grid-cols-4 items-center gap-5">
@@ -57,7 +109,9 @@ const CratesComponents = ({ props }) => {
                   width={100}
                   height={100}
                   alt={props.name}
-                  className="rounded"
+                  className={`rounded ${
+                    selectedImage === image ? "border-2 border-[#3a3a3a]" : ""
+                  }`}
                 />
               </div>
             ))}
