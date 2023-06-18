@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { useState } from "react";
 import { useStateContext } from "../../context/StateContext";
 import MyHead from "../Head";
 import AlsoLike from "../AlsoLike";
@@ -56,6 +55,7 @@ const CratesComponents = ({ props }) => {
               height={200}
               className="rounded max-h-full"
               alt={props.name}
+              priority
             />
             <button
               className="absolute top-1/2 -left-10 transform -translate-y-1/2 text-gray-500 hover:text-gray-800 focus:outline-none"

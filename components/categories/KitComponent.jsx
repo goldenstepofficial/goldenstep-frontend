@@ -59,6 +59,7 @@ const KitComponent = ({ props }) => {
               height={200}
               className="rounded max-h-full"
               alt={props.name}
+              priority
             />
             <button
               className="absolute top-1/2 -left-10 transform -translate-y-1/2 text-gray-500 hover:text-gray-800 focus:outline-none"
