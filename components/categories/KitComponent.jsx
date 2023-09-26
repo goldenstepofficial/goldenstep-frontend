@@ -132,39 +132,11 @@ const KitComponent = ({ props }) => {
             <span className="text-[20px] text-center">Rs {props.price}/-</span>
           </div>
 
-          <div className="grid grid-cols-2 gap-6 w-[80%] mx-auto justify-around md:mt-10 mt-8">
-            <button
-              className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-              onClick={addItemToCart}
-            >
-              {cartGif ? (
-                <Image
-                  src={"/images/cart-gif.gif"}
-                  width={20}
-                  height={20}
-                  alt="cart-gif"
-                />
-              ) : (
-                <span>Add to Cart</span>
-              )}
-            </button>
-            <button
-              className={`border p-2 rounded flex justify-center hover:bg-white transition duration-500 ease-in-out`}
-            >
-              {heartGif ? (
-                <Image
-                  src={"/images/heart-gif.gif"}
-                  width={20}
-                  height={20}
-                  alt="heart-gif"
-                />
-              ) : (
-                <span>Add to Wishlist</span>
-              )}
-            </button>
-          </div>
-          <div className="w-[80%] mx-auto mt-3 p-2 border rounded text-center bg-[#231F20] text-[#ebebeb] shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:text-[#FAB038] hover:border-none">
-            Buy Now
+          <div
+            className="w-[80%] mx-auto mt-3 p-2 border rounded text-center bg-[#231F20] text-[#ebebeb] shadow hover:cursor-pointer hover:bg-[#3c3a3b] hover:border-none"
+            onClick={addItemToCart}
+          >
+            Add to Cart
           </div>
 
           <div className="flex flex-col ml-5 md:mt-5 mt-2">

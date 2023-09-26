@@ -13,6 +13,8 @@ const Navbar = () => {
   const [isSearchButtonVisible, setIsSearchButtonVisible] = useState(false);
   const [width, setWidth] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isSearchOverlayVisible, setIsSearchOverlayVisible] = useState(false);
+  const [isBackgroundBlurred, setIsBackgroundBlurred] = useState(false);
 
   const { showCart, setShowCart } = useStateContext();
 
@@ -22,104 +24,27 @@ const Navbar = () => {
     if (!isExpanded) {
       setSearchTerm("");
       setIsSearchButtonVisible(true);
+      setIsSearchOverlayVisible(true);
+      setIsBackgroundBlurred(true);
     } else {
       setIsSearchButtonVisible(false);
+      setIsSearchOverlayVisible(false);
+      setIsBackgroundBlurred(false);
     }
   };
 
   const inputRef = useRef();
 
-  const handleOutsideClick = (event) => {
-    if (inputRef.current && !inputRef.current.contains(event.target)) {
-      setIsExpanded(false);
-      setIsSearchButtonVisible(false);
-    }
-  };
-
   useEffect(() => {
     setWidth(window.innerWidth);
     window.addEventListener("resize", () => setWidth(window.innerWidth));
-
-    window.addEventListener("click", handleOutsideClick);
-
-    return () => {
-      window.removeEventListener("click", handleOutsideClick);
-    };
   }, []);
 
   if (width > 1000) {
     return (
       <>
         <div className="flex flex-col items-center w-full pb-2">
-          <div className="grid grid-cols-3 w-full items-center">
-            <button
-              className="flex flex-row items-center justify-start ml-3 text-black"
-              onClick={() => router.push("/login")}
-            >
-              <span>Sign In</span>
-              <Image
-                src={"/images/user.png"}
-                width={30}
-                height={30}
-                className="mx-2 hover:cursor-pointer"
-                alt="user"
-              />
-            </button>
-            <div className="flex justify-center">
-              <Image
-                src={"/images/logo.jpg"}
-                width={70}
-                height={70}
-                onClick={() => router.push("/")}
-                className="cursor-pointer"
-                alt="goldenstep-logo"
-              />
-            </div>
-            <div className="flex flex-row justify-end mr-3">
-              <Image
-                src={"/images/heart.png"}
-                width={30}
-                height={30}
-                className="mx-2 hover:cursor-pointer"
-                alt="user"
-              />
-              <Image
-                src={"/images/cart.png"}
-                width={30}
-                height={30}
-                className="mx-2 hover:cursor-pointer"
-                alt="cart"
-                onClick={() => {
-                  setShowCart(!showCart);
-                }}
-              />
-            </div>
-          </div>
-          <div className="flex flex-row w-full justify-around mt-5 items-center text-black text-[18px] uppercase font-bold">
-            <Link
-              href={"/accessories"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Accessories
-            </Link>
-            <Link
-              href={"/crates"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Crates
-            </Link>
-            <Link
-              href={"/kit"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Kit
-            </Link>
-            {/* <Link
-              href={"/sneakers"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Sneakers
-            </Link> */}
+          <div className="grid grid-cols-3 w-full items-center px-10">
             <div className="flex flex-row items-center relative" ref={inputRef}>
               <Image
                 src={"/images/search.png"}
@@ -131,26 +56,82 @@ const Navbar = () => {
                 onClick={handleIconClick}
                 alt="search"
               />
-              <input
-                className={`${
-                  isExpanded
-                    ? "w-[14rem] border border-[#ebebeb] py-2 px-3"
-                    : "w-0 py-0 px-0"
-                } bg-[#3c3a3b] focus:outline-none rounded text-[14px] transition-all duration-500 opacity-${
-                  isExpanded ? "100" : "0"
-                }`}
+            </div>
+            <div className="flex justify-center">
+              <Image
+                src={"/images/logo.jpg"}
+                width={90}
+                height={90}
+                onClick={() => router.push("/")}
+                className="cursor-pointer"
+                alt="goldenstep-logo"
               />
-              <button
-                className={`${
-                  isSearchButtonVisible ? "block" : "hidden"
-                } absolute top-0 right-0 bg-[#ebebeb] hover:bg-gray-300 text-[#3c3a3b] hover:text-gray-900 cursor-pointer px-2 py-[8.5px] rounded text-[14px]`}
-              >
-                Search
-              </button>
+            </div>
+            <div className="flex flex-row justify-end mr-3">
+              <Image
+                src={"/images/user.png"}
+                width={25}
+                height={25}
+                className="mx-2 hover:cursor-pointer"
+                onClick={() => router.push("/login")}
+                alt="user"
+              />
+              <Image
+                src={"/images/bag.png"}
+                width={25}
+                height={25}
+                className="mx-2 hover:cursor-pointer"
+                alt="cart"
+                onClick={() => {
+                  setShowCart(!showCart);
+                }}
+              />
             </div>
           </div>
+          <div className="flex flex-row w-full justify-center gap-16 mt-5 items-center text-black text-[18px] uppercase font-bold">
+            <Link
+              href={"/crates"}
+              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
+            >
+              Crates
+            </Link>
+            <Link
+              href={"/accessories"}
+              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
+            >
+              Accessories
+            </Link>
+            <Link
+              href={"/kit"}
+              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
+            >
+              Kit
+            </Link>
+          </div>
+          {isSearchOverlayVisible && (
+            <div className="fixed top-0 w-full h-screen flex bg-black bg-opacity-50">
+              <div className="w-full px-28 justify-between h-[25%] bg-white p-4 top-0 flex flex-row items-center">
+                <Image
+                  src={"/images/search.png"}
+                  width={25}
+                  height={25}
+                  alt="search"
+                />
+                <input
+                  className="w-[60%] border border-black p-3 bg-white focus:outline-none rounded-full text-[14px] transition-all duration-500"
+                  placeholder="Search Our Store"
+                />
+                <button
+                  className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer"
+                  onClick={handleIconClick}
+                >
+                  &#x2715;
+                </button>
+              </div>
+            </div>
+          )}
+          {showCart && <Cart />}
         </div>
-        {showCart && <Cart />}
       </>
     );
   }
@@ -159,7 +140,7 @@ const Navbar = () => {
     <>
       <div className="pb-1">
         <div className="grid grid-cols-3 w-full items-center">
-          <button className="flex flex-row items-center justify-start ml-3">
+          <div className="flex flex-row items-center">
             <Image
               src={"/images/menu.png"}
               width={20}
@@ -169,14 +150,16 @@ const Navbar = () => {
               onClick={() => setMenuOpen(true)}
             />
             <Image
-              src={"/images/user.png"}
+              src={"/images/search.png"}
+              className={`${isExpanded ? "absolute top-0 right-0" : ""} ${
+                isSearchButtonVisible ? "hidden" : "block"
+              } cursor-pointer`}
               width={20}
               height={20}
-              className="mx-2 hover:cursor-pointer"
-              alt="user"
-              onClick={() => router.push("/login")}
+              onClick={handleIconClick}
+              alt="search"
             />
-          </button>
+          </div>
           <div className="flex justify-center">
             <Image
               src={"/images/logo.jpg"}
@@ -189,14 +172,15 @@ const Navbar = () => {
           </div>
           <div className="flex flex-row justify-end mr-3">
             <Image
-              src={"/images/heart.png"}
+              src={"/images/user.png"}
               width={20}
               height={20}
               className="mx-2 hover:cursor-pointer"
               alt="user"
+              onClick={() => router.push("/login")}
             />
             <Image
-              src={"/images/cart.png"}
+              src={"/images/bag.png"}
               width={20}
               height={20}
               className="mx-2 hover:cursor-pointer"
@@ -206,6 +190,28 @@ const Navbar = () => {
               }}
             />
           </div>
+          {isSearchOverlayVisible && (
+            <div className="fixed top-0 w-full h-screen flex bg-black bg-opacity-50">
+              <div className="w-full px-5 justify-between h-[15%] bg-white p-4 top-0 flex flex-row items-center">
+                <Image
+                  src={"/images/search.png"}
+                  width={25}
+                  height={25}
+                  alt="search"
+                />
+                <input
+                  className="w-[80%] border border-black p-3 bg-white focus:outline-none rounded-full text-[14px] transition-all duration-500"
+                  placeholder="Search Our Store"
+                />
+                <button
+                  className="text-xl text-gray-700 hover:text-gray-900 cursor-pointer"
+                  onClick={handleIconClick}
+                >
+                  &#x2715;
+                </button>
+              </div>
+            </div>
+          )}
         </div>
         {menuOpen && (
           <div className="flex flex-col bg-white h-max pb-8 top-0 absolute w-[80%] z-10 gap-12 items-center text-black font-bold uppercase">
@@ -237,40 +243,6 @@ const Navbar = () => {
             >
               Kit
             </Link>
-            {/* <Link
-              href={"/sneakers"}
-              className="hover:cursor-pointer hover:underline hover:underline-offset-4"
-            >
-              Sneakers
-            </Link> */}
-            <div className="flex flex-row items-center relative" ref={inputRef}>
-              <Image
-                src={"/images/search.png"}
-                className={`${isExpanded ? "absolute top-0 right-0" : ""} ${
-                  isSearchButtonVisible ? "hidden" : "block"
-                } cursor-pointer`}
-                width={25}
-                height={25}
-                onClick={handleIconClick}
-                alt="search"
-              />
-              <input
-                className={`${
-                  isExpanded
-                    ? "w-[14rem] border border-[#ebebeb] py-2 px-3"
-                    : "w-0 py-0 px-0"
-                } bg-[#3c3a3b] focus:outline-none rounded text-[14px] transition-all duration-500 opacity-${
-                  isExpanded ? "100" : "0"
-                }`}
-              />
-              <button
-                className={`${
-                  isSearchButtonVisible ? "block" : "hidden"
-                } absolute top-0 right-0 bg-[#ebebeb] hover:bg-gray-300 text-[#3c3a3b] hover:text-gray-900 cursor-pointer px-2 py-2 rounded text-[14px]`}
-              >
-                Search
-              </button>
-            </div>
           </div>
         )}
       </div>
