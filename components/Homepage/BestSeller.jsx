@@ -16,7 +16,7 @@ const BestSeller = ({ props }) => {
           <h1 className="text-[50px] font-extrabold text-center mt-10">
             Best Seller
           </h1>
-          <p className="text-[18px] font-light">
+          <p className="text-[18px] text-center font-light">
             Explore our top-rated and most-loved products. Discover what&apos;s
             trending and loved by sneaker enthusiasts like you.
           </p>

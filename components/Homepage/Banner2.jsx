@@ -7,9 +7,9 @@ const Banner2 = () => {
 
   return (
     <>
-      <div className="grid grid-cols-2 items-center w-[90%] mx-auto my-40 gap-20">
+      <div className="grid md:grid-cols-2 grid-cols-1 items-center w-[90%] mx-auto my-40 gap-20">
         <div className="flex flex-col gap-5 items-start">
-          <h1 className="text-[60px] leading-tight font-extrabold">
+          <h1 className="md:text-[60px] text-[40px] leading-tight font-extrabold">
             Ultimate Sneaker Care Essentials Collection
           </h1>
           <p>
