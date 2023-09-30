@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import MyHead from '../components/Head'
+import Link from 'next/link'
 
 const PaymentFailed = () => {
     return (
@@ -16,7 +17,7 @@ const PaymentFailed = () => {
                 <p className='md:text-[18px] text-center text-red-400 font-bold'>
                     There has been some error processing your payment. Please try again later!
                 </p>
-                <a href="/" className='text-center underline mt-5'>Back to Home</a>
+                <Link href="/" className='text-center underline mt-5'>Back to Home</Link>
             </div>
             <Footer />
         </>

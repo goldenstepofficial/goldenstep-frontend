@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
 import MyHead from '../components/Head'
+import Link from 'next/link'
 
 const PaymentSuccess = () => {
     return (
@@ -16,7 +17,7 @@ const PaymentSuccess = () => {
                 <p className='md:text-[18px] text-center text-green-300 font-bold'>
                     Thank you for shopping with us :)
                 </p>
-                <a href="/" className='text-center underline mt-5'>Back to Home</a>
+                <Link href="/" className='text-center underline mt-5'>Back to Home</Link>
             </div>
             <Footer />
         </>
