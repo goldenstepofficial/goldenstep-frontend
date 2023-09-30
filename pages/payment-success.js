@@ -8,12 +8,16 @@ const PaymentSuccess = () => {
         <>
             <Navbar />
             <MyHead title="Payment Success - Goldenstep" description="This is the homepage" />
-            <h1 className='text-[50px] text-center mt-20'>
-                Your Order has been placed!
-            </h1>
-            <p className='text-[18px] text-center text-green-300 mb-20'>
-                Thank you for shopping with us :)
-            </p>
+            <img src="/images/success.gif" alt="" className='md:h-[60vh] h-[30vh] mx-auto' />
+            <div className='flex flex-col items-center mb-20'>
+                <h1 className='md:text-[50px] text-[26px] leading-tight text-center'>
+                    Your Order has been placed!
+                </h1>
+                <p className='md:text-[18px] text-center text-green-300 font-bold'>
+                    Thank you for shopping with us :)
+                </p>
+                <a href="/" className='text-center underline mt-5'>Back to Home</a>
+            </div>
             <Footer />
         </>
     )
