@@ -235,7 +235,7 @@ const KitComponent = ({ props }) => {
               What&apos;s Inside ?
             </h1>
             <ul className="mt-1 text-[14px] w-[81%] md:w-full md:mx-0 mx-auto">
-              {props.details.components.map((component, index) => (
+              {props.details.components?.map((component, index) => (
                 <li key={index}>
                   - {component.quantity} {component.name}
                 </li>

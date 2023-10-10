@@ -1,7 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import CheckoutPage from '../../components/checkout-page';
 import MyHead from '../../components/Head';
 import Image from 'next/image';
 
@@ -9,8 +8,6 @@ const CheckoutComponent = ({ cart }) => {
     console.log('Cart:', cart);
 
     const router = useRouter()
-
-    const [isPayment, setIsPayment] = useState(false)
 
     const [formValues, setFormValues] = useState({
         first_name: '',
@@ -61,8 +58,8 @@ const CheckoutComponent = ({ cart }) => {
             .then((result) => {
                 const data = JSON.parse(result);
                 console.log(data)
-                localStorage.setItem('sessionId', data.payment_session_id)
-                setIsPayment(true)
+                localStorage.setItem('transactionId', data.transaction_id)
+                router.push(`${data.payment_url}`)
             })
             .catch(error => console.log('error', error));
     };
@@ -97,193 +94,190 @@ const CheckoutComponent = ({ cart }) => {
                             height={90}
                         />
                     </div>
-                    {!isPayment &&
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                        <div>
+                            <h1 className='mb-1 md:mt-0 mt-2'>Contact Information:</h1>
                             <div>
-                                <h1 className='mb-1 md:mt-0 mt-2'>Contact Information:</h1>
-                                <div>
-                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                                        Email
-                                    </label>
-                                    <div className="mt-1">
-                                        <input
-                                            type="email"
-                                            name="email"
-                                            id="email"
-                                            required
-                                            value={formValues.email}
-                                            onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
-                                        />
-                                    </div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                                    Email
+                                </label>
+                                <div className="mt-1">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        id="email"
+                                        required
+                                        value={formValues.email}
+                                        onChange={handleChange}
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
+                                    />
                                 </div>
                             </div>
+                        </div>
 
+                        <div>
+                            <h1 className='mb-2'>Shipping Address: </h1>
+                            <label htmlFor="country" className="block text-sm font-medium text-gray-700">
+                                Country
+                            </label>
+                            <div className="mt-1">
+                                <input
+                                    type="text"
+                                    name="country"
+                                    id="country"
+                                    required
+                                    value={formValues.country}
+                                    onChange={handleChange}
+                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2px-2 border"
+                                />
+                            </div>
+                        </div>
+                        <div className='grid grid-cols-2 gap-5'>
                             <div>
-                                <h1 className='mb-2'>Shipping Address: </h1>
-                                <label htmlFor="country" className="block text-sm font-medium text-gray-700">
-                                    Country
+                                <label htmlFor="first_name" className="block text-sm font-medium text-gray-700">
+                                    First Name
                                 </label>
                                 <div className="mt-1">
                                     <input
                                         type="text"
-                                        name="country"
-                                        id="country"
+                                        name="first_name"
+                                        id="first_name"
                                         required
-                                        value={formValues.country}
-                                        onChange={handleChange}
-                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2px-2 border"
-                                    />
-                                </div>
-                            </div>
-                            <div className='grid grid-cols-2 gap-5'>
-                                <div>
-                                    <label htmlFor="first_name" className="block text-sm font-medium text-gray-700">
-                                        First Name
-                                    </label>
-                                    <div className="mt-1">
-                                        <input
-                                            type="text"
-                                            name="first_name"
-                                            id="first_name"
-                                            required
-                                            value={formValues.first_name}
-                                            onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">
-                                        Last Name
-                                    </label>
-                                    <div className="mt-1">
-                                        <input
-                                            type="text"
-                                            name="last_name"
-                                            id="last_name"
-                                            required
-                                            value={formValues.last_name}
-                                            onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <label htmlFor="address_line_1" className="block text-sm font-medium text-gray-700">
-                                    Address Line 1
-                                </label>
-                                <div className="mt-1">
-                                    <input
-                                        type="text"
-                                        name="address_line_1"
-                                        id="address_line_1"
-                                        required
-                                        value={formValues.address_line_1}
+                                        value={formValues.first_name}
                                         onChange={handleChange}
                                         className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                     />
                                 </div>
                             </div>
                             <div>
-                                <label htmlFor="address_line_2" className="block text-sm font-medium text-gray-700">
-                                    Address Line 2 (Optional)
+                                <label htmlFor="last_name" className="block text-sm font-medium text-gray-700">
+                                    Last Name
                                 </label>
                                 <div className="mt-1">
                                     <input
                                         type="text"
-                                        name="address_line_2"
-                                        id="address_line_2"
-                                        value={formValues.address_line_2}
+                                        name="last_name"
+                                        id="last_name"
+                                        required
+                                        value={formValues.last_name}
                                         onChange={handleChange}
                                         className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                     />
                                 </div>
                             </div>
-                            <div className='grid grid-cols-3 gap-5'>
-                                <div>
-                                    <label htmlFor="city" className="block text-sm font-medium text-gray-700">
-                                        City
-                                    </label>
-                                    <div className="mt-1">
-                                        <input
-                                            type="text"
-                                            name="city"
-                                            id="city"
-                                            required
-                                            value={formValues.city}
-                                            onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="state" className="block text-sm font-medium text-gray-700">
-                                        State
-                                    </label>
-                                    <div className="mt-1">
-                                        <input
-                                            type="text"
-                                            name="state"
-                                            id="state"
-                                            required
-                                            value={formValues.state}
-                                            onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label htmlFor="pincode" className="block text-sm font-medium text-gray-700">
-                                        Pincode
-                                    </label>
-                                    <div className="mt-1">
-                                        <input
-                                            type="text"
-                                            name="pincode"
-                                            id="pincode"
-                                            required
-                                            value={formValues.pincode}
-                                            onChange={handleChange}
-                                            className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
-                                        />
-                                    </div>
-                                </div>
+                        </div>
+                        <div>
+                            <label htmlFor="address_line_1" className="block text-sm font-medium text-gray-700">
+                                Address Line 1
+                            </label>
+                            <div className="mt-1">
+                                <input
+                                    type="text"
+                                    name="address_line_1"
+                                    id="address_line_1"
+                                    required
+                                    value={formValues.address_line_1}
+                                    onChange={handleChange}
+                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
+                                />
                             </div>
+                        </div>
+                        <div>
+                            <label htmlFor="address_line_2" className="block text-sm font-medium text-gray-700">
+                                Address Line 2 (Optional)
+                            </label>
+                            <div className="mt-1">
+                                <input
+                                    type="text"
+                                    name="address_line_2"
+                                    id="address_line_2"
+                                    value={formValues.address_line_2}
+                                    onChange={handleChange}
+                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
+                                />
+                            </div>
+                        </div>
+                        <div className='grid grid-cols-3 gap-5'>
                             <div>
-                                <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700">
-                                    Phone Number
+                                <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                                    City
                                 </label>
                                 <div className="mt-1">
                                     <input
-                                        type="tel"
-                                        name="phone_number"
-                                        id="phone_number"
+                                        type="text"
+                                        name="city"
+                                        id="city"
                                         required
-                                        value={formValues.phone_number}
+                                        value={formValues.city}
                                         onChange={handleChange}
                                         className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
                                     />
                                 </div>
                             </div>
-                            <div className='flex flex-row items-center justify-between w-full pb-5'>
-                                <button
-                                    className=""
-                                    onClick={() => router.push(`/cart/${cart.id}`)}
-                                >
-                                    <span className='text-[26px] mr-1'>{`<`}</span>Return to Cart
-                                </button>
-                                <button
-                                    type="submit"
-                                    className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                >
-                                    Place Order
-                                </button>
+                            <div>
+                                <label htmlFor="state" className="block text-sm font-medium text-gray-700">
+                                    State
+                                </label>
+                                <div className="mt-1">
+                                    <input
+                                        type="text"
+                                        name="state"
+                                        id="state"
+                                        required
+                                        value={formValues.state}
+                                        onChange={handleChange}
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
+                                    />
+                                </div>
                             </div>
-                        </form>
-                    }
-                    {isPayment && <CheckoutPage />}
+                            <div>
+                                <label htmlFor="pincode" className="block text-sm font-medium text-gray-700">
+                                    Pincode
+                                </label>
+                                <div className="mt-1">
+                                    <input
+                                        type="text"
+                                        name="pincode"
+                                        id="pincode"
+                                        required
+                                        value={formValues.pincode}
+                                        onChange={handleChange}
+                                        className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label htmlFor="phone_number" className="block text-sm font-medium text-gray-700">
+                                Phone Number
+                            </label>
+                            <div className="mt-1">
+                                <input
+                                    type="tel"
+                                    name="phone_number"
+                                    id="phone_number"
+                                    required
+                                    value={formValues.phone_number}
+                                    onChange={handleChange}
+                                    className="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm py-2 px-2 border"
+                                />
+                            </div>
+                        </div>
+                        <div className='flex flex-row items-center justify-between w-full pb-5'>
+                            <button
+                                className=""
+                                onClick={() => router.push(`/cart/${cart.id}`)}
+                            >
+                                <span className='text-[26px] mr-1'>{`<`}</span>Return to Cart
+                            </button>
+                            <button
+                                type="submit"
+                                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            >
+                                Place Order
+                            </button>
+                        </div>
+                    </form>
                 </div>
                 <div className='md:w-[40%] w-full bg-[#ededed] md:border-black md:border-l'>
                     {cart.items.map((data, index) => (
